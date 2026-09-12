@@ -1,12 +1,16 @@
 # SANKALP
 > **System for Autonomous Navigation, Knowledge-driven Adaptation, and Logistic Planning**
 
+[![Live Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue.svg)](https://priyanshu-2308.github.io/SANKALP/)
 [![Tests](https://img.shields.io/badge/tests-13%20passed-brightgreen.svg)](tests/)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 [![Architecture](https://img.shields.io/badge/architecture-ReAct%20%2B%20Reflexion-indigo.svg)](#architecture)
 
 SANKALP is an **autonomous journey recovery platform** designed to resolve high-stakes travel disruptions across Indian transit corridors (Indian Railways, intercity sleeper buses, and air feeders). When trains are abruptly cancelled, delayed, or connecting legs break, SANKALP ingests real-time telemetry, generates Pareto-optimal multi-modal itineraries, and executes consequential actions under human-in-the-loop governance.
+
+> [!WARNING]
+> **Notice:** The live web interface at **[https://priyanshu-2308.github.io/SANKALP/](https://priyanshu-2308.github.io/SANKALP/)** is an interactive proof-of-concept prototype and is **not production-grade yet**. External railway PRS transactional gateways and live sensor telemetry are simulated.
 
 ---
 
@@ -87,7 +91,8 @@ flowchart TD
 python server.py
 ```
 Open your browser at:
-- **Product Application**: [http://localhost:8080/](http://localhost:8080/)
+- **Live Demo (GitHub Pages)**: [https://priyanshu-2308.github.io/SANKALP/](https://priyanshu-2308.github.io/SANKALP/) *(Prototype demo, not production-grade yet)*
+- **Local Application Server**: [http://localhost:8080/](http://localhost:8080/)
 
 ### 2. Run the Interactive Simulation & Edge Case Suite
 ```bash
