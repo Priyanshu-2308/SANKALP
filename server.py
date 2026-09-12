@@ -136,6 +136,9 @@ class SankalpHandler(BaseHTTPRequestHandler):
         elif path in ("/slides", "/slides.html"):
             slides_html = os.path.join(BASE_DIR, "slides.html")
             self.send_file(slides_html)
+        elif path == "/offline_bundle.js":
+            bundle_js = os.path.join(BASE_DIR, "offline_bundle.js")
+            self.send_file(bundle_js, "application/javascript; charset=utf-8")
         elif path == "/api/stations":
             self.send_json([
                 {
