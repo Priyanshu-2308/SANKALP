@@ -3,8 +3,7 @@ SANKALP: Web Server & Live Application Gateway
 Zero-dependency HTTP server using Python standard library (ThreadingHTTPServer).
 Serves:
 1. Live Interactive SANKALP Product UI at http://localhost:8080/
-2. Interactive Architecture Overview at http://localhost:8080/slides
-3. REST APIs powering live ReAct agent, Decision Science, and Chaos Engineering.
+2. REST APIs powering live ReAct agent, Decision Science, and Chaos Engineering.
 """
 import os
 import sys
@@ -133,9 +132,6 @@ class SankalpHandler(BaseHTTPRequestHandler):
         if path in ("/", "/app", "/index.html"):
             app_html = os.path.join(BASE_DIR, "app.html")
             self.send_file(app_html)
-        elif path in ("/slides", "/slides.html"):
-            slides_html = os.path.join(BASE_DIR, "slides.html")
-            self.send_file(slides_html)
         elif path == "/offline_bundle.js":
             bundle_js = os.path.join(BASE_DIR, "offline_bundle.js")
             self.send_file(bundle_js, "application/javascript; charset=utf-8")
@@ -349,7 +345,6 @@ def run_server():
     print(f"      S A N K A L P  :  Live Application Server Running on Port {PORT}")
     print(f"================================================================================")
     print(f"  • Interactive Product UI : http://localhost:{PORT}/")
-    print(f"  • System Architecture    : http://localhost:{PORT}/slides")
     print(f"  • Core REST APIs         : http://localhost:{PORT}/api/status")
     print(f"================================================================================")
     try:

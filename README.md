@@ -88,7 +88,6 @@ python server.py
 ```
 Open your browser at:
 - **Product Application**: [http://localhost:8080/](http://localhost:8080/)
-- **Architecture Overview**: [http://localhost:8080/slides](http://localhost:8080/slides)
 
 ### 2. Run the Interactive Simulation & Edge Case Suite
 ```bash
@@ -140,7 +139,6 @@ All 13 regression and routing tests run in under 0.15s.
 
 ```
 SANKALP/
-├── .agents/                    # Autonomous agent specifications & runbooks
 ├── sankalp/                    # Core Python engine package
 │   ├── __init__.py             # Package descriptor
 │   ├── agent.py                # ReAct + Reflexion agent swarm implementation
@@ -152,10 +150,12 @@ SANKALP/
 ├── tests/                      # Automated test suite
 │   ├── test_generic_routing.py # Multi-corridor generic routing tests
 │   └── test_sankalp.py         # End-to-end decision science & edge case tests
-├── app.html                    # Production-grade single-page application UI
+├── index.html                  # Production web app & GitHub Pages entrypoint
+├── app.html                    # Production web application interface
+├── offline_bundle.js           # Client-side static fallback dataset for GitHub Pages
 ├── server.py                   # Zero-dependency HTTP gateway & REST API server
 ├── simulate.py                 # CLI simulation & chaos scenario runner
-├── slides.html                 # Interactive system architecture presentation
+├── SARCATHON_PS.md             # Problem statement and system architecture blueprint
 └── README.md                   # Project documentation
 ```
 
