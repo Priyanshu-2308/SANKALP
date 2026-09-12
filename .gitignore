@@ -48,6 +48,9 @@ screenshot*.png
 initial_view.png
 chrome_debug/
 git_bin/
+git.cmd
+git.bat
+git.ps1
 *.zip
 
 # Offline problem statement documents
