@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <title>SANKALP — Autonomous Journey Recovery Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Rich Midnight Slate Dark Theme (Deep Navy/Indigo tinted canvas - ZERO neon) */
+      --bg-base: #0b1120;
+      --bg-stage: #0f172a;
+      --bg-surface: #131d35;
+      --bg-card: #182442;
+      --bg-card-hover: #1e2d52;
+      --bg-subtle: #24345d;
+
+      --border-subtle: #24355a;
+      --border-medium: #334978;
+      --border-focus: #4b6cb7;
+
+      --brand-blue: #3b82f6;
+      --brand-blue-hover: #2563eb;
+      --brand-blue-soft: rgba(59, 130, 246, 0.15);
+
+      /* Natural status dots & accents (matte, non-neon) */
+      --dot-red: #f43f5e;
+      --dot-green: #10b981;
+      --dot-amber: #f59e0b;
+
+      --text-white: #ffffff;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-pill: 9999px;
+      --radius-card: 16px;
+      --radius-sm: 8px;
+
+      --shadow-clean: 0 8px 24px rgba(4, 7, 15, 0.45);
+      --shadow-ticket: 0 16px 36px rgba(4, 7, 15, 0.6);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      touch-action: manipulation;
+    }
+    html {
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
+      touch-action: manipulation;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      font-family: var(--font-display);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      touch-action: manipulation;
+      background-image: 
+        radial-gradient(at 15% 10%, rgba(30, 58, 138, 0.35) 0px, transparent 55%),
+        radial-gradient(at 85% 85%, rgba(15, 23, 42, 0.6) 0px, transparent 65%);
+      background-attachment: fixed;
+    }
+
+    /* 1. FLOATING DOCK HEADER */
+    .island-nav-wrap {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+    }
+    .island-nav {
+      background: rgba(19, 29, 53, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-clean);
+      max-width: 1200px;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-spark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #1e3a8a;
+      border: 1px solid #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 15px;
+    }
+    .brand-name {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      color: var(--text-white);
+    }
+
+    .status-capsule {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      color: #fecdd3;
+      font-weight: 600;
+    }
+    .status-dot-red {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--dot-red);
+    }
+    .status-dot-green {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--dot-green);
+    }
+
+    .wallet-capsule {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      color: #a7f3d0;
+      font-weight: 600;
+    }
+
+    .nav-buttons-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-nav-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-nav-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+      color: #ffffff;
+    }
+
+    /* 2. EDITORIAL HERO SECTION */
+    .hero-container {
+      max-width: 1240px;
+      margin: 36px auto 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #93c5fd;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      max-width: 860px;
+      margin: 0 auto 14px auto;
+      color: var(--text-white);
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 28px auto;
+      line-height: 1.6;
+    }
+
+    /* Interactive Controls Dock */
+    .hero-dock {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 980px;
+      margin: 0 auto 34px auto;
+      box-shadow: var(--shadow-clean);
+      flex-wrap: wrap;
+    }
+    .dock-field {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .dock-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    .dock-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-white);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+    }
+    .dock-budget-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dock-slider {
+      width: 140px;
+      accent-color: #3b82f6;
+    }
+    .dock-budget-tag {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #93c5fd;
+      background: var(--bg-card);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-dock-action {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+    }
+    .btn-dock-action:hover {
+      background: #1d4ed8;
+    }
+
+    .dock-input {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-white);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      outline: none;
+      width: 175px;
+      transition: border-color 0.15s ease;
+    }
+    .dock-input:focus {
+      border-color: #3b82f6;
+    }
+
+    /* PNR Triage Bar */
+    .pnr-triage-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 6px 16px;
+      margin: 0 auto 18px auto;
+    }
+    .pnr-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pnr-input-field {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      width: 140px;
+      outline: none;
+    }
+    .pnr-input-field:focus {
+      border-color: #3b82f6;
+    }
+    .btn-pnr-lookup {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-pnr-lookup:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+
+    /* Popular Corridor Quick Chips */
+    .corridor-presets-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: -16px auto 36px auto;
+      max-width: 980px;
+    }
+    .preset-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      margin-right: 4px;
+    }
+    .preset-chip {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      touch-action: manipulation;
+      user-select: none;
+    }
+    .preset-chip:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+      color: #ffffff;
+    }
+    .preset-chip.active {
+      background: #1e3a8a;
+      border-color: #3b82f6;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* 3. MAIN STAGE */
+    .stage-layout {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px 60px 24px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* LEFT: Curated Corridor Showcase */
+    .corridor-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Filter Segmented Pill */
+    .segmented-filter-bar {
+      display: flex;
+      gap: 6px;
+      background: var(--bg-surface);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      overflow-x: auto;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      height: 44px;
+      min-height: 44px;
+      max-height: 44px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .filter-segment-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 0 16px;
+      height: 34px;
+      line-height: 34px;
+      box-sizing: border-box;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      white-space: nowrap;
+      outline: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transform: none !important;
+      zoom: 1 !important;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+    .filter-segment-btn:hover {
+      color: var(--text-white);
+    }
+    .filter-segment-btn.active {
+      background: var(--bg-card);
+      color: #ffffff;
+      font-weight: 600;
+      border: 1px solid var(--border-medium);
+    }
+    .filter-segment-btn:focus,
+    .filter-segment-btn:focus-visible {
+      outline: none;
+    }
+
+    /* Spotlighted #1 Pareto Corridor Card */
+    .corridor-hero-board {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-card);
+      padding: 22px 24px;
+      position: relative;
+      border-left: 4px solid #3b82f6;
+      box-shadow: var(--shadow-clean);
+      min-height: 295px;
+      contain: layout;
+    }
+
+    .corridor-hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .pareto-rank-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pareto-score-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: #93c5fd;
+    }
+
+    .corridor-hero-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-white);
+      margin-bottom: 14px;
+      line-height: 1.35;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Horizontal Transit Schematic */
+    .journey-schematic-track {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      overflow-x: auto;
+      min-height: 84px;
+      height: 84px;
+    }
+    .stop-node {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stop-clock {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+    .stop-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .transit-span {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 0 8px;
+      min-width: 110px;
+    }
+    .transit-carrier-chip {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .transit-line-render {
+      width: 100%;
+      height: 2px;
+      background: var(--border-medium);
+      position: relative;
+    }
+    .transit-line-render::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+    }
+
+    /* Key Value Stats Bar */
+    .corridor-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .stat-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat-caption {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+    .stat-figure {
+      font-size: 15px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-white);
+    }
+
+    /* Corridor Cards Feed */
+    .corridor-feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 600px;
+      contain: layout;
+    }
+    .corridor-card-row {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transform: none !important;
+      zoom: 1 !important;
+    }
+    .corridor-card-row:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+    }
+    .corridor-card-row.selected {
+      border: 1px solid #3b82f6;
+      background: var(--bg-card);
+    }
+    .card-row-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-category-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .card-row-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+    .card-row-route {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .card-row-metrics {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      padding-top: 6px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* RIGHT: Boarding Pass & Consequential Gate */
+    .boarding-pass-column {
+      position: sticky;
+      top: 86px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .digital-ticket-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-ticket);
+      position: relative;
+      overflow: hidden;
+    }
+    .ticket-head-strip {
+      background: #1e293b;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 18px 22px;
+      position: relative;
+    }
+    .ticket-head-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      margin-bottom: 2px;
+    }
+    .ticket-trip-headline {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.35;
+    }
+    .ticket-hold-timer {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #fef08a;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(254, 240, 138, 0.25);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .ticket-body-content {
+      padding: 20px 22px;
+    }
+
+    .pass-data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .pass-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .pass-key {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    .pass-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    /* Perforated Divider */
+    .perforated-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      margin: 8px -22px 16px -22px;
+    }
+    .notch-left, .notch-right {
+      width: 14px;
+      height: 22px;
+      background: var(--bg-base);
+      position: absolute;
+    }
+    .notch-left {
+      left: 0;
+      border-radius: 0 11px 11px 0;
+      border-right: 1px solid var(--border-subtle);
+    }
+    .notch-right {
+      right: 0;
+      border-radius: 11px 0 0 11px;
+      border-left: 1px solid var(--border-subtle);
+    }
+    .dash-line {
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px dashed var(--border-medium);
+      margin: 0 18px;
+    }
+
+    /* Financial Breakdown */
+    .fare-calculator-ledger {
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ledger-entry {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .ledger-entry.refund-credit {
+      color: #6ee7b7;
+      font-weight: 600;
+    }
+    .ledger-entry.grand-net {
+      padding-top: 6px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-white);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .net-figure {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .btn-ticket-issue {
+      width: 100%;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+    }
+    .btn-ticket-issue:hover {
+      background: #1d4ed8;
+    }
+
+    .qr-expand-link {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 11px;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto 0 auto;
+      text-decoration: underline;
+    }
+
+    .qr-drawer-box {
+      display: none;
+      text-align: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .qr-svg-holder {
+      width: 90px;
+      height: 90px;
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 4px;
+      margin: 0 auto 6px auto;
+    }
+    .qr-uri-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      padding: 5px;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+
+    /* 4. COGNITIVE AGENT INSPECTOR */
+    .agent-cognition-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .cognition-header {
+      padding: 12px 18px;
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+    .cognition-stream {
+      padding: 0 18px 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cognition-step-row {
+      padding: 8px 10px;
+      background: var(--bg-card);
+      border-left: 3px solid #3b82f6;
+      border-radius: 0 4px 4px 0;
+      font-size: 11px;
+    }
+    .cog-type-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 1px;
+    }
+    .cog-prose {
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* 5. CHAOS RESILIENCE SWITCHBOARD */
+    .chaos-switchboard-section {
+      max-width: 1240px;
+      margin: 10px auto 70px auto;
+      padding: 0 24px;
+    }
+    .chaos-switchboard-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 24px;
+    }
+    .switchboard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .switchboard-heading {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .switchboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .chaos-trigger-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: left;
+    }
+    .chaos-trigger-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+    }
+    .trigger-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .trigger-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 3px;
+    }
+    .trigger-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-box {
+      background: var(--bg-surface);
+      border-radius: var(--radius-card);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      width: 100%;
+      max-width: 560px;
+      overflow: hidden;
+      border: 1px solid var(--border-medium);
+    }
+    .modal-header {
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .modal-body {
+      padding: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .stage-layout {
+        grid-template-columns: 1fr;
+      }
+      .switchboard-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .boarding-pass-column {
+        position: static;
+      }
+      .hero-title {
+        font-size: 30px;
+      }
+      .hero-dock {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. FLOATING DOCK HEADER -->
+  <div class="island-nav-wrap">
+    <div class="island-nav">
+      
+      <a href="#" class="brand-pill">
+        <div class="brand-spark">S</div>
+        <div class="brand-name">SANKALP</div>
+      </a>
+
+      <div class="status-capsule">
+        <span class="status-dot-red"></span>
+        <span id="status-corridor-text">Train 12628 Cancelled at Bhopal Jn</span>
+      </div>
+
+      <div class="wallet-capsule">
+        <span class="status-dot-green"></span>
+        <span id="tdr-text">Auto-TDR: ₹1,420 Refund Active</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button class="btn-nav-item" onclick="scrollToChaos()">
+          <span>⚡</span> Chaos Suite
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. EDITORIAL HERO SECTION -->
+  <div class="hero-container">
+    <span class="hero-eyebrow">Autonomous Travel Recovery Engine • Pan-India Multi-Modal Transit</span>
+    <h1 class="hero-title" id="hero-headline">Instant Travel Recovery Across 50+ Indian Transit Hubs</h1>
+    <p class="hero-subtitle" id="hero-subtext">
+      When rail cancellations or severe network delays strike, SANKALP automatically claims Rule 6(b) refunds, queries multi-modal routes across Rail, Bus, and Air, and guarantees on-time arrival before your reporting deadline.
+    </p>
+
+    <!-- PNR Instant Triage Strip -->
+    <div style="text-align:center;">
+      <div class="pnr-triage-strip">
+        <span class="pnr-label">🎫 Disrupted Ticket Lookup:</span>
+        <input type="text" id="pnr-input" class="pnr-input-field" placeholder="10-digit PNR" value="2458901234">
+        <button class="btn-pnr-lookup" onclick="lookupPNR()">Auto-Triage PNR</button>
+      </div>
+    </div>
+
+    <!-- Floating Interactive Controls Dock -->
+    <div class="hero-dock">
+      
+      <div class="dock-field">
+        <span class="dock-label">Origin Station</span>
+        <input type="text" id="input-origin" class="dock-input" list="stations-list" value="BPL" placeholder="Station (e.g. NDLS, BPL)" onchange="onStationChanged()">
+      </div>
+
+      <div class="dock-field">
+        <span class="dock-label">Destination Station</span>
+        <input type="text" id="input-dest" class="dock-input" list="stations-list" value="SBC" placeholder="Station (e.g. SBC, CSMT)" onchange="onStationChanged()">
+      </div>
+
+      <div class="dock-field">
+        <span class="dock-label">Venue / City Hub</span>
+        <input type="text" id="txt-venue" class="dock-input" value="Whitefield Kadugodi, Bengaluru" placeholder="Venue / Locality" style="width:190px;">
+      </div>
+
+      <div class="dock-field">
+        <span class="dock-label">Reporting Deadline</span>
+        <select id="sel-exam-time" class="dock-select" onchange="onConstraintChange()">
+          <option value="9.0" selected>09:00 AM (Standard)</option>
+          <option value="8.0">08:00 AM (Early Shift)</option>
+          <option value="7.5">07:30 AM (Strict Gate Close)</option>
+        </select>
+        <span id="lbl-exam-time" style="display:none;">09:00 AM</span>
+      </div>
+
+      <div class="dock-field">
+        <span class="dock-label">Travel Budget</span>
+        <div class="dock-budget-wrap">
+          <input type="range" class="dock-slider" id="rng-budget" min="1500" max="10000" step="500" value="4000" oninput="onBudgetInput(this.value)" onchange="onConstraintChange()">
+          <span class="dock-budget-tag" id="lbl-budget">₹4,000</span>
+        </div>
+      </div>
+
+      <button class="btn-dock-action" onclick="searchGenericRoute()">
+        <span>⚡</span> Find Routes
+      </button>
+
+    </div>
+
+    <!-- Datalist for Station Autocomplete -->
+    <datalist id="stations-list">
+      <!-- Populated dynamically via JS -->
+    </datalist>
+
+    <!-- Popular Corridor Quick Chips -->
+    <div class="corridor-presets-bar">
+      <span class="preset-label">Corridor Presets:</span>
+      <button class="preset-chip active" id="chip-bpl-blr" onclick="setCorridor('BPL', 'SBC', 'Whitefield Kadugodi, Bengaluru', 'Train 12628 Cancelled at Bhopal Jn', 1420, this)">Bhopal (BPL) → Bengaluru (SBC)</button>
+      <button class="preset-chip" id="chip-del-bom" onclick="setCorridor('NDLS', 'CSMT', 'Bandra Kurla Complex, Mumbai', 'Train 12952 Disrupted at New Delhi', 2980, this)">New Delhi (NDLS) → Mumbai (CSMT)</button>
+      <button class="preset-chip" id="chip-pat-del" onclick="setCorridor('PNBE', 'NDLS', 'Connaught Place, New Delhi', 'Train 12309 Cancelled at Patna Jn', 2150, this)">Patna (PNBE) → New Delhi (NDLS)</button>
+      <button class="preset-chip" id="chip-ccu-maa" onclick="setCorridor('HWH', 'MAS', 'T. Nagar, Chennai', 'Train 12840 Cancelled at Howrah', 2240, this)">Kolkata (HWH) → Chennai (MAS)</button>
+      <button class="preset-chip" id="chip-hyd-pun" onclick="setCorridor('HYB', 'PUNE', 'Shivajinagar, Pune', 'Train 17014 Delayed at Hyderabad', 1350, this)">Hyderabad (HYB) → Pune (PUNE)</button>
+    </div>
+  </div>
+
+  <!-- 3. MAIN STAGE -->
+  <div class="stage-layout">
+
+    <!-- LEFT: Curated Corridor Showcase -->
+    <div class="corridor-showcase">
+      
+      <!-- Filter Segmented Pills -->
+      <div class="segmented-filter-bar">
+        <button type="button" class="filter-segment-btn active" onclick="filterRoutes('ALL', this)">All Corridors (<span id="btn-count-all">11</span>)</button>
+        <button type="button" class="filter-segment-btn" onclick="filterRoutes('RAIL', this)">Superfast Rail</button>
+        <button type="button" class="filter-segment-btn" onclick="filterRoutes('BUS', this)">AC Sleeper Bus</button>
+        <button type="button" class="filter-segment-btn" onclick="filterRoutes('MULTI', this)">Rail + Bus</button>
+        <button type="button" class="filter-segment-btn" onclick="filterRoutes('AIR', this)">Air Feeder</button>
+      </div>
+
+      <!-- Spotlighted #1 Pareto Recommendation Hero Card -->
+      <div class="corridor-hero-board">
+        
+        <div class="corridor-hero-top">
+          <div class="pareto-rank-pill">
+            <span style="color:#6ee7b7;">★</span> Top Recommendation (Pareto Optimal)
+          </div>
+          <div class="pareto-score-tag" id="hero-score-badge">Utility: 0.942</div>
+        </div>
+
+        <div class="corridor-hero-title" id="hero-route-title">
+          Direct Karnataka Sampark Kranti Express
+        </div>
+
+        <!-- Horizontal Transit Schematic -->
+        <div class="journey-schematic-track" id="hero-schematic-track">
+          <div class="stop-node">
+            <span class="stop-clock">12:45 PM</span>
+            <span class="stop-name">Bhopal Jn (BPL)</span>
+          </div>
+
+          <div class="transit-span">
+            <span class="transit-carrier-chip">🚆 12650 Sampark Kranti</span>
+            <div class="transit-line-render"></div>
+            <span style="font-size:10px; color:var(--text-dim);">17h 30m Transit</span>
+          </div>
+
+          <div class="stop-node">
+            <span class="stop-clock">06:15 AM</span>
+            <span class="stop-name">Yesvantpur (YPR)</span>
+          </div>
+
+          <div class="transit-span">
+            <span class="transit-carrier-chip">⚡ Namma Metro Purple</span>
+            <div class="transit-line-render"></div>
+            <span style="font-size:10px; color:var(--text-muted);">Fixed Rail 42m</span>
+          </div>
+
+          <div class="stop-node" style="text-align:right;">
+            <span class="stop-clock">07:35 AM</span>
+            <span class="stop-name">Exam Venue</span>
+          </div>
+        </div>
+
+        <!-- 4 Key Stat Figures -->
+        <div class="corridor-stats-row">
+          <div class="stat-cell">
+            <span class="stat-caption">Total Fare</span>
+            <span class="stat-figure" id="hero-fare">₹1,745</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-caption">On-Time Certainty</span>
+            <span class="stat-figure" id="hero-punctuality">91.4%</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-caption">Exam Buffer Slack</span>
+            <span class="stat-figure" id="hero-slack">+85 mins</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-caption">Interchanges</span>
+            <span class="stat-figure" id="hero-transfers">1 Transfer</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Feed of Other Alternative Corridors -->
+      <div style="font-size: 12px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 6px;">
+        Alternative Corridors (<span id="route-count">11</span> Discovered)
+      </div>
+
+      <div class="corridor-feed-list" id="route-list-container">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Electronic Boarding Pass & Consequential Booking Gate -->
+    <div class="boarding-pass-column">
+      
+      <div class="digital-ticket-card">
+        
+        <div class="ticket-head-strip">
+          <div class="ticket-head-label">Instant Transit Pass</div>
+          <div class="ticket-trip-headline" id="gate-selected-name">Direct Karnataka Sampark Kranti Express</div>
+          <div class="ticket-hold-timer" id="timer-box">⏱ 180s Lock</div>
+        </div>
+
+        <div class="ticket-body-content">
+          
+          <div class="pass-data-grid">
+            <div class="pass-item">
+              <span class="pass-key">Passenger</span>
+              <span class="pass-val" id="ticket-passenger">Examinee / Traveler</span>
+            </div>
+            <div class="pass-item">
+              <span class="pass-key">Reservation Quota</span>
+              <span class="pass-val">Tatkal / Current Hold</span>
+            </div>
+            <div class="pass-item">
+              <span class="pass-key">Origin Terminal</span>
+              <span class="pass-val" id="ticket-origin-terminal">Bhopal Jn (BPL)</span>
+            </div>
+            <div class="pass-item">
+              <span class="pass-key">Target Arrival</span>
+              <span class="pass-val" id="ticket-arrival-venue">07:35 AM (+85m buffer)</span>
+            </div>
+          </div>
+
+          <!-- Perforated Tear Line -->
+          <div class="perforated-strip">
+            <div class="notch-left"></div>
+            <div class="dash-line"></div>
+            <div class="notch-right"></div>
+          </div>
+
+          <!-- Financial Statement with Rule 6(b) Auto-Credit -->
+          <div class="fare-calculator-ledger">
+            <div class="ledger-entry">
+              <span>New Carrier Reservation</span>
+              <span id="ledger-gross-fare" style="font-family: var(--font-mono); font-weight: 600;">₹1,745.00</span>
+            </div>
+            <div class="ledger-entry refund-credit">
+              <span>Auto-TDR Refund Credit (Rule 6b)</span>
+              <span id="ledger-tdr-credit" style="font-family: var(--font-mono);">-₹1,420.00</span>
+            </div>
+            <div class="ledger-entry grand-net">
+              <span>Effective Net Payable</span>
+              <span class="net-figure" id="gate-amount">₹325.00</span>
+            </div>
+          </div>
+
+          <!-- 1-Click Authorize Button (Solid Royal Blue) -->
+          <button class="btn-ticket-issue" id="btn-authorize" onclick="executeConsequentialPayment()">
+            <span>Authorize & Issue Ticket (1-Click)</span>
+          </button>
+
+          <!-- Toggle QR Code -->
+          <button class="qr-expand-link" onclick="toggleQRCode()">
+            Scan UPI QR Code (Optional)
+          </button>
+
+          <div class="qr-drawer-box" id="qr-area">
+            <div class="qr-svg-holder">
+              <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <rect width="100" height="100" fill="#ffffff" />
+                <rect x="10" y="10" width="25" height="25" fill="#000" />
+                <rect x="15" y="15" width="15" height="15" fill="#fff" />
+                <rect x="18" y="18" width="9" height="9" fill="#000" />
+                <rect x="65" y="10" width="25" height="25" fill="#000" />
+                <rect x="70" y="15" width="15" height="15" fill="#fff" />
+                <rect x="73" y="18" width="9" height="9" fill="#000" />
+                <rect x="10" y="65" width="25" height="25" fill="#000" />
+                <rect x="15" y="70" width="15" height="15" fill="#fff" />
+                <rect x="18" y="73" width="9" height="9" fill="#000" />
+                <rect x="42" y="15" width="16" height="8" fill="#000" />
+                <rect x="42" y="30" width="8" height="16" fill="#000" />
+                <rect x="55" y="42" width="15" height="8" fill="#000" />
+                <rect x="75" y="45" width="15" height="12" fill="#000" />
+                <rect x="42" y="65" width="18" height="18" fill="#000" />
+                <rect x="70" y="75" width="20" height="15" fill="#000" />
+              </svg>
+            </div>
+            <div class="qr-uri-pill" id="gate-upi-uri">
+              upi://pay?pa=irctc.pay@icici&pn=IRCTC&am=1745.00&tr=SANKALP_8192
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Autonomous Agent Reasoning Inspector -->
+      <div class="agent-cognition-box">
+        <div class="cognition-header" onclick="toggleReActStream()">
+          <span>Agent Decision Reasoning</span>
+          <span id="react-toggle-icon" style="font-size: 11px; color: var(--text-dim);">▼ Hide</span>
+        </div>
+        <div class="cognition-stream" id="react-stream-container">
+          <div class="cognition-step-row">
+            <div class="cog-type-badge">THOUGHT • BELIEF STATE B_t</div>
+            <div class="cog-prose">Auto-filed Rule 6(b) refund of ₹1,420 to restore passenger wallet liquidity.</div>
+          </div>
+          <div class="cognition-step-row">
+            <div class="cog-type-badge">ACTION • MULTI-MODAL EXPLORATION</div>
+            <div class="cog-prose">Traversed Superfast Rail, AC Sleeper Buses (NH-44), and Indore Air Feeder.</div>
+          </div>
+          <div class="cognition-step-row">
+            <div class="cog-type-badge">REFLEXION • MAUT OPTIMIZATION</div>
+            <div class="cog-prose">Sampark Kranti + Namma Metro Purple Line selected for peak on-time certainty (91.4%).</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 4. CHAOS RESILIENCE SWITCHBOARD -->
+  <div class="chaos-switchboard-section" id="chaos-section">
+    <div class="chaos-switchboard-card">
+      <div class="switchboard-top">
+        <div class="switchboard-heading">
+          <span>Chaos Engineering & Resilience Switchboard</span>
+        </div>
+        <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-dim);">
+          Problem Statement Section 5 Verification
+        </span>
+      </div>
+
+      <div class="switchboard-grid">
+        
+        <div class="chaos-trigger-card" onclick="runChaosConflict()">
+          <div class="trigger-num">Test 01 • Bayesian Fusion</div>
+          <div class="trigger-name">Sensor Ambiguity</div>
+          <div class="trigger-desc">
+            NTES GPS reports "On Time" vs passenger crowd distress +120m delay. Reconciles via multi-source Bayesian confidence.
+          </div>
+        </div>
+
+        <div class="chaos-trigger-card" onclick="runChaosGateway()">
+          <div class="trigger-num">Test 02 • Circuit Breaker</div>
+          <div class="trigger-name">IRCTC 503 Timeout</div>
+          <div class="trigger-desc">
+            Simulates bank payment gateway timeout during rush; seamlessly triggers NPCI UPI fallback without dropping seat hold.
+          </div>
+        </div>
+
+        <div class="chaos-trigger-card" onclick="runChaosDelay()">
+          <div class="trigger-num">Test 03 • Cascade Re-Plan</div>
+          <div class="trigger-name">In-Transit 110m Delay</div>
+          <div class="trigger-desc">
+            Incoming train delayed by 110m. Autonomously triggers fixed-rail Bangalore Metro Purple Line to rescue exam arrival.
+          </div>
+        </div>
+
+        <div class="chaos-trigger-card" onclick="runChaosMutation()">
+          <div class="trigger-num">Test 04 • Dynamic Reflexion</div>
+          <div class="trigger-name">Constraint Mutation</div>
+          <div class="trigger-desc">
+            Exam preponed to 07:30 AM & budget bumped to ₹10,000. Dynamically evicts infeasible corridors and re-plans.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Modal -->
+  <div class="modal-backdrop" id="chaos-modal" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">Verification Results</div>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Filled via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allPlans = [];
+    let selectedItineraryId = null;
+    let currentFilter = 'ALL';
+    let countdownSec = 180;
+    let timerInterval = null;
+    let autoRefundAmount = 1420.0;
+    let stationDirectory = [];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchStations();
+      fetchStatus();
+      startCountdown();
+    });
+
+    async function fetchStations() {
+      try {
+        const res = await fetch('/api/stations');
+        stationDirectory = await res.json();
+        const dl = document.getElementById('stations-list');
+        if (dl) {
+          dl.innerHTML = stationDirectory.map(s => `
+            <option value="${s.code}">${s.name} (${s.code}) • ${s.city}, ${s.state}</option>
+          `).join('');
+        }
+      } catch (err) {
+        console.warn("Station directory fetch:", err);
+      }
+    }
+
+    function onStationChanged() {
+      // Station input changed
+    }
+
+    function startCountdown() {
+      clearInterval(timerInterval);
+      countdownSec = 180;
+      timerInterval = setInterval(() => {
+        countdownSec--;
+        if (countdownSec <= 0) countdownSec = 180;
+        document.getElementById('timer-box').innerText = `⏱ ${countdownSec}s Lock`;
+      }, 1000);
+    }
+
+    async function fetchStatus() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+        allPlans = data.candidate_plans || [];
+        if (data.refund_amount) autoRefundAmount = data.refund_amount;
+        
+        if (allPlans.length > 0) {
+          renderHeroCard(allPlans[0]);
+          renderRoutes(allPlans);
+          selectRoute(allPlans[0].itinerary_id);
+        }
+
+        if (data.react_steps) renderReActSteps(data.react_steps);
+      } catch (err) {
+        console.error("Error fetching status:", err);
+      }
+    }
+
+    function renderHeroCard(plan) {
+      if (!plan) return;
+      document.getElementById('hero-route-title').innerText = plan.name;
+      document.getElementById('hero-score-badge').innerText = `Utility: ${plan.utility_score.toFixed(3)}`;
+      document.getElementById('hero-fare').innerText = `₹${plan.total_fare.toLocaleString('en-IN')}`;
+      document.getElementById('hero-punctuality').innerText = `${(plan.monte_carlo_punctuality * 100).toFixed(1)}%`;
+      document.getElementById('hero-slack').innerText = `+${plan.venue_buffer_minutes} mins`;
+      document.getElementById('hero-transfers').innerText = `${plan.num_transfers} ${plan.num_transfers === 1 ? 'Transfer' : 'Transfers'}`;
+
+      const container = document.getElementById('hero-schematic-track');
+      let html = '';
+      plan.legs.forEach((leg, idx) => {
+        html += `
+          <div class="stop-node">
+            <span class="stop-clock">${leg.departure_time}</span>
+            <span class="stop-name">${leg.from_station}</span>
+          </div>
+          <div class="transit-span">
+            <span class="transit-carrier-chip">${leg.mode === 'RAIL' ? '🚆' : '🚌'} ${leg.carrier_name}</span>
+            <div class="transit-line-render"></div>
+          </div>
+        `;
+        if (idx === plan.legs.length - 1) {
+          html += `
+            <div class="stop-node">
+              <span class="stop-clock">${leg.arrival_time}</span>
+              <span class="stop-name">${leg.to_station}</span>
+            </div>
+          `;
+        }
+      });
+
+      if (plan.last_mile) {
+        html += `
+          <div class="transit-span">
+            <span class="transit-carrier-chip">⚡ ${plan.last_mile.carrier_name}</span>
+            <div class="transit-line-render"></div>
+          </div>
+          <div class="stop-node" style="text-align:right;">
+            <span class="stop-clock">${plan.venue_arrival_time.split(', ')[1] || '07:35 AM'}</span>
+            <span class="stop-name">Exam Venue</span>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderRoutes(plans) {
+      const container = document.getElementById('route-list-container');
+      const allCountSpan = document.getElementById('btn-count-all');
+      if (allCountSpan) allCountSpan.innerText = plans.length;
+
+      let filtered = plans;
+      if (currentFilter === 'RAIL') {
+        filtered = plans.filter(p => p.legs.every(l => l.mode === 'RAIL'));
+      } else if (currentFilter === 'BUS') {
+        filtered = plans.filter(p => p.legs.every(l => l.mode === 'BUS'));
+      } else if (currentFilter === 'MULTI') {
+        filtered = plans.filter(p => p.legs.some(l => l.mode === 'RAIL') && p.legs.some(l => l.mode === 'BUS'));
+      } else if (currentFilter === 'AIR') {
+        filtered = plans.filter(p => p.legs.some(l => l.mode === 'FLIGHT'));
+      }
+
+      document.getElementById('route-count').innerText = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding:30px; color:var(--text-dim);">No corridors match this filter.</div>';
+        return;
+      }
+
+      container.innerHTML = filtered.map(p => {
+        const isSelected = p.itinerary_id === selectedItineraryId;
+        const selectedClass = isSelected ? 'selected' : '';
+
+        const legSummary = p.legs.map(l => `${l.from_station} (${l.departure_time}) → ${l.to_station} (${l.arrival_time})`).join('  •  ');
+        const lastMile = p.last_mile ? ` → ⚡ ${p.last_mile.carrier_name}` : '';
+
+        return `
+          <div class="corridor-card-row ${selectedClass}" data-id="${p.itinerary_id}" onclick="selectRoute('${p.itinerary_id}')">
+            <div class="card-row-header">
+              <span class="card-category-pill">${p.category}</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight:700; color: var(--text-white);">Utility Score: ${p.utility_score.toFixed(3)}</span>
+            </div>
+            <div class="card-row-title">${p.name}</div>
+            <div class="card-row-route">
+              ${legSummary} ${lastMile}
+            </div>
+            <div class="card-row-metrics">
+              <span style="color:var(--text-white); font-weight:700;">₹${p.total_fare.toLocaleString('en-IN')} Total</span>
+              <span>Reliability: ${(p.monte_carlo_punctuality * 100).toFixed(1)}%</span>
+              <span>Slack: +${p.venue_buffer_minutes}m</span>
+              <span>${p.num_transfers} ${p.num_transfers === 1 ? 'Transfer' : 'Transfers'}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterRoutes(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll('.segmented-filter-bar .filter-segment-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderRoutes(allPlans);
+    }
+
+    async function selectRoute(itinId) {
+      selectedItineraryId = itinId;
+      
+      // In-place class update: preserves scroll anchor and element identity
+      document.querySelectorAll('.corridor-card-row').forEach(row => {
+        if (row.getAttribute('data-id') === itinId) {
+          row.classList.add('selected');
+        } else {
+          row.classList.remove('selected');
+        }
+      });
+
+      const target = allPlans.find(p => p.itinerary_id === itinId);
+      if (!target) return;
+
+      document.getElementById('gate-selected-name').innerText = target.name;
+      document.getElementById('ledger-gross-fare').innerText = `₹${target.total_fare.toLocaleString('en-IN')}.00`;
+      
+      const netPayable = Math.max(0, target.total_fare - autoRefundAmount);
+      document.getElementById('gate-amount').innerText = `₹${netPayable.toLocaleString('en-IN')}.00`;
+      
+      const venueArrival = target.venue_arrival_time ? target.venue_arrival_time.split(', ')[1] : '07:35 AM';
+      document.getElementById('ticket-arrival-venue').innerText = `${venueArrival} (+${target.venue_buffer_minutes}m buffer)`;
+
+      if (target.legs && target.legs.length > 0) {
+        document.getElementById('ticket-origin-terminal').innerText = target.legs[0].from_station;
+      }
+
+      // NOTE: Bento box hero card remains 100% static showing the #1 Pareto Optimal recommendation.
+
+      try {
+        const res = await fetch('/api/book/prep', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ itinerary_id: itinId })
+        });
+        const prep = await res.json();
+        document.getElementById('gate-upi-uri').innerText = prep.upi_intent_uri;
+        startCountdown();
+      } catch (err) {
+        console.error("Prep error:", err);
+      }
+    }
+
+    function toggleQRCode() {
+      const area = document.getElementById('qr-area');
+      area.style.display = (area.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function toggleReActStream() {
+      const container = document.getElementById('react-stream-container');
+      const icon = document.getElementById('react-toggle-icon');
+      if (container.style.display === 'none') {
+        container.style.display = 'flex';
+        icon.innerText = '▼ Hide';
+      } else {
+        container.style.display = 'none';
+        icon.innerText = '▲ Show';
+      }
+    }
+
+    function onBudgetInput(val) {
+      document.getElementById('lbl-budget').innerText = `₹${Number(val).toLocaleString('en-IN')}`;
+    }
+
+    async function onConstraintChange() {
+      searchGenericRoute();
+    }
+
+    function setCorridor(orig, dest, venue, statusText, refundAmt, btn) {
+      document.getElementById('input-origin').value = orig;
+      document.getElementById('input-dest').value = dest;
+      document.getElementById('txt-venue').value = venue;
+
+      if (statusText) {
+        document.getElementById('status-corridor-text').innerText = statusText;
+      }
+      if (refundAmt) {
+        autoRefundAmount = refundAmt;
+        document.getElementById('tdr-text').innerText = `Auto-TDR: ₹${refundAmt.toLocaleString('en-IN')} Refund Active`;
+        document.getElementById('ledger-tdr-credit').innerText = `-₹${refundAmt.toLocaleString('en-IN')}.00`;
+      }
+
+      document.querySelectorAll('.corridor-presets-bar .preset-chip').forEach(c => c.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      searchGenericRoute();
+    }
+
+    async function searchGenericRoute() {
+      const orig = document.getElementById('input-origin').value.trim().toUpperCase();
+      const dest = document.getElementById('input-dest').value.trim().toUpperCase();
+      const examHour = parseFloat(document.getElementById('sel-exam-time').value);
+      const budget = parseFloat(document.getElementById('rng-budget').value);
+      const venue = document.getElementById('txt-venue').value;
+
+      document.getElementById('hero-headline').innerText = `Route Recovery: ${orig} → ${dest}`;
+      document.getElementById('ticket-origin-terminal').innerText = orig;
+
+      try {
+        const res = await fetch('/api/route', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            origin: orig,
+            destination: dest,
+            exam_hour: examHour,
+            budget: budget,
+            venue_area: venue
+          })
+        });
+        const data = await res.json();
+        allPlans = data.plans || [];
+        if (allPlans.length > 0) {
+          renderHeroCard(allPlans[0]);
+          renderRoutes(allPlans);
+          selectRoute(allPlans[0].itinerary_id);
+        } else {
+          document.getElementById('route-list-container').innerHTML = '<div style="text-align:center; padding:30px; color:var(--text-dim);">No routes found under specified constraints. Try expanding budget or deadline.</div>';
+        }
+        if (data.react_steps) renderReActSteps(data.react_steps);
+      } catch (err) {
+        console.error("Route search error:", err);
+      }
+    }
+
+    async function lookupPNR() {
+      const pnr = document.getElementById('pnr-input').value.trim();
+      if (!pnr) return;
+
+      try {
+        const res = await fetch('/api/pnr/lookup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pnr: pnr })
+        });
+        const data = await res.json();
+        
+        document.getElementById('input-origin').value = data.origin;
+        document.getElementById('input-dest').value = data.destination;
+        document.getElementById('txt-venue').value = `${data.destination_name} Center`;
+        document.getElementById('status-corridor-text').innerText = `${data.train_name} (${data.train_no}) ${data.status.replace(/_/g, ' ')}`;
+        
+        if (data.passenger_name) {
+          document.getElementById('ticket-passenger').innerText = data.passenger_name;
+        }
+        if (data.refund_amount) {
+          autoRefundAmount = data.refund_amount;
+          document.getElementById('tdr-text').innerText = `Auto-TDR: ₹${data.refund_amount.toLocaleString('en-IN')} Refund Active`;
+          document.getElementById('ledger-tdr-credit').innerText = `-₹${data.refund_amount.toLocaleString('en-IN')}.00`;
+        }
+
+        searchGenericRoute();
+      } catch (err) {
+        console.error("PNR lookup error:", err);
+      }
+    }
+
+    function renderReActSteps(steps) {
+      const container = document.getElementById('react-stream-container');
+      if (!steps || steps.length === 0) return;
+      
+      container.innerHTML = steps.slice(-4).map((s, idx) => {
+        let type = 'THOUGHT • BELIEF STATE B_t';
+        let content = s.thought;
+
+        if (s.action) {
+          type = `ACTION • ${s.action}`;
+          content = s.action_input ? JSON.stringify(s.action_input) : '';
+        }
+        if (s.reflexion) {
+          type = 'REFLEXION • GATED MAUT';
+          content = s.reflexion;
+        }
+
+        return `
+          <div class="cognition-step-row">
+            <div class="cog-type-badge">${type}</div>
+            <div class="cog-prose">${content}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function executeConsequentialPayment() {
+      const btn = document.getElementById('btn-authorize');
+      btn.innerHTML = 'Securing IRCTC Berth...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/book/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ simulate_gateway_retry: true })
+        });
+        const receipt = await res.json();
+
+        openModal('Transaction Settled & Confirmed', `
+          <div style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 8px; padding: 16px; margin-bottom: 14px;">
+            <div style="font-size: 17px; font-weight: 800; color: #ffffff;">PNR ${receipt.pnr} ISSUED & SECURED</div>
+            <div style="color: var(--text-secondary); margin-top: 4px; font-size: 14px;">Coach/Berth: <strong>${receipt.coach_berth}</strong></div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-top: 4px;">Verification Token: ${receipt.qr_token}</div>
+          </div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">GATEWAY RESILIENCE LOG:</div>
+          <div style="background: var(--bg-card); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); line-height: 1.7;">
+            ${receipt.resilience_log.map(l => `<div>• ${l}</div>`).join('')}
+          </div>
+          <div style="margin-top: 12px; font-size: 12px; color: #93c5fd; font-weight: 600;">
+            Sentinel Watchdog actively monitoring Carrier ${receipt.monitored_carrier}.
+          </div>
+        `);
+      } catch (err) {
+        console.error("Booking error:", err);
+      } finally {
+        btn.innerHTML = 'Authorize & Issue Ticket (1-Click)';
+        btn.disabled = false;
+      }
+    }
+
+    function scrollToChaos() {
+      document.getElementById('chaos-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* Chaos Engineering Test Cases */
+    async function runChaosConflict() {
+      const res = await fetch('/api/chaos/conflict', { method: 'POST' });
+      const data = await res.json();
+
+      const sources = data.sources_evaluated.map(s => `
+        <div style="display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--border-subtle);">
+          <span><strong>${s.source}</strong> (${s.status})</span>
+          <span style="font-family: var(--font-mono); color: var(--text-white); font-weight:600;">${s.delay_minutes}m (Conf: ${(s.confidence*100).toFixed(0)}%)</span>
+        </div>
+      `).join('');
+
+      openModal('Sensor Ambiguity Reconciliation (Bayesian Fusion)', `
+        <div style="margin-bottom: 12px; color: var(--text-secondary);">
+          Conflicting telemetry detected across NTES GPS, Passenger Crowd Reports, and Twitter feeds:
+        </div>
+        <div style="background: var(--bg-card); border-radius: 8px; padding: 12px; margin-bottom: 14px; border: 1px solid var(--border-subtle);">
+          ${sources}
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 8px; padding: 12px;">
+          <div style="font-weight: 700; color: #ffffff;">Decision Engine Resolution:</div>
+          <div style="margin-top: 4px; color: var(--text-secondary);">${data.decision}</div>
+          <div style="font-size: 11px; color: var(--text-dim); margin-top: 6px;">Root Cause: ${data.root_cause}</div>
+        </div>
+      `);
+    }
+
+    async function runChaosGateway() {
+      const res = await fetch('/api/book/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ simulate_gateway_retry: true })
+      });
+      const data = await res.json();
+
+      openModal('Payment Gateway 503 Circuit-Breaker Resilience', `
+        <div style="margin-bottom: 12px; color: var(--text-secondary);">
+          Simulating bank payment gateway timeout during morning rush:
+        </div>
+        <div style="background: var(--bg-card); border-radius: 8px; padding: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); line-height: 1.8; border: 1px solid var(--border-subtle);">
+          ${data.resilience_log.map(l => `<div>• ${l}</div>`).join('')}
+        </div>
+        <div style="margin-top: 14px; color: #a7f3d0; font-weight: 700;">
+          Result: Zero cart forfeiture! Seamlessly settled via secondary NPCI UPI rail under existing 180s session lock.
+        </div>
+      `);
+    }
+
+    async function runChaosDelay() {
+      const res = await fetch('/api/chaos/delay', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ delay_minutes: 110 })
+      });
+      const data = await res.json();
+      const r = data.cascade_replan;
+
+      openModal('In-Transit 110m Delay & Namma Metro Purple Line Rescue', `
+        <div style="background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 14px;">
+          <div style="font-weight: 700; color: #fecdd3;">DERAILMENT ALARM EN ROUTE (BETUL):</div>
+          <div style="font-size: 12px; margin-top: 4px; color: var(--text-secondary);">Incoming carrier delayed by 110 minutes! Transfer buffer at junction wiped out.</div>
+        </div>
+
+        <div style="font-size: 13px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">AUTONOMOUS CASCADE RE-PLAN:</div>
+        <ul style="background: var(--bg-card); border-radius: 8px; padding: 12px; list-style: none; font-size: 12px; line-height: 1.8; color: var(--text-secondary); border: 1px solid var(--border-subtle);">
+          <li>• <strong>Action:</strong> ${r.action || 'RE-ROUTE_TO_POST_CHART_CURRENT_BOOKING'}</li>
+          <li>• <strong>Replacement Carrier:</strong> ${r.new_connecting_carrier} (${r.quota_used})</li>
+          <li>• <strong>Arrival Terminal:</strong> ${r.arrival_bengaluru_station}</li>
+          <li>• <strong>Last-Mile Rescue:</strong> <strong>${r.last_mile_override}</strong> (42m direct fixed-rail)</li>
+          <li>• <strong>Final Exam Arrival:</strong> ${r.venue_arrival_time} (<strong>${r.exam_slack_minutes} mins safe buffer</strong> before exam gate!)</li>
+        </ul>
+      `);
+    }
+
+    async function runChaosMutation() {
+      const res = await fetch('/api/mutate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ exam_hour: 7.5, budget: 10000.0 })
+      });
+      const data = await res.json();
+      allPlans = data.plans || [];
+      if (allPlans.length > 0) {
+        renderHeroCard(allPlans[0]);
+        selectRoute(allPlans[0].itinerary_id);
+      }
+      renderRoutes(allPlans);
+
+      openModal('Dynamic Constraint Mutation (07:30 AM & ₹10,000)', `
+        <div style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 8px; padding: 12px; margin-bottom: 14px;">
+          <div style="font-weight: 700; color: #ffffff;">DYNAMIC REFLEXION EXECUTED:</div>
+          <div style="font-size: 12px; margin-top: 4px; color: var(--text-secondary);">${data.reflexion}</div>
+        </div>
+
+        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+          • <strong>Evicted Infeasible Corridors (${data.evicted_routes.length}):</strong><br>
+          <span style="font-size: 11px; color: var(--text-muted); font-weight:600;">${data.evicted_routes.join(', ')}</span>
+          <br><br>
+          • <strong>New Top Recommendation:</strong><br>
+          <span style="color: #ffffff; font-weight: 700;">${data.top_recommendation.name} (Fare: ₹${data.top_recommendation.total_fare}, On-Time: ${(data.top_recommendation.monte_carlo_punctuality*100).toFixed(1)}%)</span>
+        </div>
+      `);
+    }
+
+    function openModal(title, content) {
+      document.getElementById('modal-title').innerHTML = title;
+      document.getElementById('modal-content').innerHTML = content;
+      document.getElementById('chaos-modal').style.display = 'flex';
+    }
+
+    function closeModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('chaos-modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
