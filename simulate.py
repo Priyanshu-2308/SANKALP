@@ -60,7 +60,7 @@ def run_simulation(
 
     # Edge Case 1: Conflicting Sensor Information Resolution
     if demo_conflict:
-        print(">>> [EDGE CASE TEST: CONFLICTING SENSOR INFORMATION RESOLUTION (PS SEC 5)]")
+        print(">>> [EDGE CASE TEST: BAYESIAN SENSOR FUSION & DISCREPANCY RESOLUTION]")
         print("[!] Detection: Telemetry sources report divergent statuses for incoming corridor:")
         conflict_res = orchestrator.resolve_conflicting_telemetry("20846")
         for src in conflict_res["sources_evaluated"]:
@@ -117,7 +117,7 @@ def run_simulation(
 
     # Edge Case 4: Dynamic Constraint Mutation
     if demo_mutation:
-        print(">>> [EDGE CASE TEST: DYNAMIC CONSTRAINT MUTATION (PS SEC 5)]")
+        print(">>> [EDGE CASE TEST: DYNAMIC CONSTRAINT MUTATION & RE-PLANNING]")
         print("[!] EVENT: User calls back in panic: 'My exam was preponed to 07:30 AM, and my parents transferred emergency funds (Budget: INR 10,000)!'")
         new_exam = (base_date + timedelta(days=1)).replace(hour=7, minute=30)
         mut_res = orchestrator.mutate_user_constraints(new_exam, 10000.0)
@@ -170,7 +170,7 @@ def run_simulation(
     time.sleep(0.3)
 
     # 5. Execution & Gateway Resilience (Edge Case 2)
-    print(">>> [PHASE 5: TRANSACTIONAL EXECUTION & GATEWAY RESILIENCE (PS SEC 5)]")
+    print(">>> [PHASE 5: TRANSACTIONAL EXECUTION & GATEWAY RESILIENCE]")
     receipt = orchestrator.step5_execute_booking(prep["reservation_token"], simulate_gateway_retry=demo_resilience)
     if receipt.get("resilience_log"):
         print("  [GATEWAY CIRCUIT BREAKER ACTIVATED]")
@@ -191,7 +191,7 @@ def run_simulation(
     time.sleep(0.3)
 
     # 7. In-Transit Disruption & Cascade Re-Planning Simulation (Edge Case 3)
-    print(">>> [PHASE 7: SIMULATED IN-TRANSIT DISRUPTION & DYNAMIC CASCADE RE-PLANNING (PS SEC 5)]")
+    print(">>> [PHASE 7: SIMULATED IN-TRANSIT DISRUPTION & DYNAMIC CASCADE RE-PLANNING]")
     print("[EVENT 18:30 PM] While passenger is en-route near Betul / Amla ghat section,")
     print("a freight derailment causes a sudden 110-MINUTE DELAY on the active incoming train.")
     print("Scheduled transfer buffer at junction is completely wiped out -> BROKEN CONNECTION.")

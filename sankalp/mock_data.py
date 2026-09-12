@@ -1,7 +1,8 @@
 """
-Realistic transportation network datasets for Indian Railways, Intercity Buses, and Domestic Flights
-representing the Bhopal (BPL/RKMP) -> Bengaluru (SBC/YPR/SMVB) corridor.
-Includes exact operational metadata: Quotas, mean delays, station hubs, and variance.
+SANKALP Transit Knowledge Base & Realistic Network Topology.
+Provides comprehensive pan-India transit directory covering 50+ key hubs across
+Indian Railways (IR), Interstate Express Sleeper Buses (NH-44 & regional expressways),
+Domestic Aviation Feeders, and Rapid Last-Mile Fixed-Rail Metro systems.
 """
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional

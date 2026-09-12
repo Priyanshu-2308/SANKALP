@@ -21,14 +21,17 @@ from sankalp.models import Itinerary
 PORT = 8080
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Global Orchestrator Instance
+# ---------------------------------------------------------------------------
+# SANKALP Runtime Engine Bootstrap
+# Initialize the persistent orchestrator, triage baseline disruption,
+# calibrate default constraints, and compute initial Pareto-optimal frontiers.
+# ---------------------------------------------------------------------------
 base_date = get_base_date()
 orchestrator = SankalpOrchestrator(
     pnr="2458901234",
     cancelled_train_no="12628",
     base_date=base_date
 )
-# Initial setup
 orchestrator.step1_disruption_triage()
 exam_time_default = (base_date + timedelta(days=1)).replace(hour=9, minute=0)
 orchestrator.step2_elicit_constraints(exam_time_default, 4000.0, "Whitefield Kadugodi, Bengaluru")
@@ -36,6 +39,10 @@ orchestrator.step3_explore_and_rank_plans()
 
 
 def serialize_itinerary(p: Itinerary) -> Dict[str, Any]:
+    """
+    Serializes an Itinerary domain model into a structured, JSON-ready payload
+    for frontend rendering and external REST client consumption.
+    """
     return {
         "itinerary_id": p.itinerary_id,
         "name": p.name,

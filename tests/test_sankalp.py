@@ -80,7 +80,7 @@ class TestSankalpEngine(unittest.TestCase):
             payment_tool.execute("SESSION_123", total_amount=2850.0, user_authorized=False)
 
     def test_conflicting_telemetry_sensor_fusion(self):
-        """Verify multi-source Bayesian telemetry reconciliation (Section 5 Problem Statement)."""
+        """Verify multi-source Bayesian telemetry reconciliation under sensor ambiguity."""
         tool = ConflictingSensorResolutionTool()
         res = tool.resolve_discrepancy("20846")
         self.assertTrue(res["discrepancy_detected"])
