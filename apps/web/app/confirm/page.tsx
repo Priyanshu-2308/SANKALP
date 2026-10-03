@@ -3,8 +3,8 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { approveRecoveryPlan } from "../../lib/api";
-import { ScoredItinerary } from "../../lib/types";
+import { approveRecoveryPlan } from "@/lib/api";
+import { ScoredItinerary } from "@/lib/types";
 
 function ConfirmContent() {
   const router = useRouter();

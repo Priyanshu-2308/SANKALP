@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { searchPlaces } from "../lib/api";
-import { Place } from "../lib/types";
+import { searchPlaces } from "@/lib/api";
+import { Place } from "@/lib/types";
 
 interface StationAutocompleteProps {
   id: string;

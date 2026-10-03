@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import DelaySimulator from "../../../components/DelaySimulator";
-import { getTripDetails } from "../../../lib/api";
-import { TripDetail } from "../../../lib/types";
+import DelaySimulator from "@/components/DelaySimulator";
+import { getTripDetails } from "@/lib/api";
+import { TripDetail } from "@/lib/types";
 
 export default function TripClientView({ id }: { id: string }) {
   const [trip, setTrip] = useState<TripDetail | null>(null);

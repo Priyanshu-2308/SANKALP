@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { simulateDelay } from "../lib/api";
-import { Leg, SimulateDelayResponse } from "../lib/types";
+import { simulateDelay } from "@/lib/api";
+import { Leg, SimulateDelayResponse } from "@/lib/types";
 
 interface DelaySimulatorProps {
   tripId: string;

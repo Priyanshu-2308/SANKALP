@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import StationAutocomplete from "../components/StationAutocomplete";
-import { parseNaturalLanguageQuery } from "../lib/api";
-import { Place } from "../lib/types";
+import StationAutocomplete from "@/components/StationAutocomplete";
+import { parseNaturalLanguageQuery } from "@/lib/api";
+import { Place } from "@/lib/types";
 
 export default function HomePage() {
   const router = useRouter();

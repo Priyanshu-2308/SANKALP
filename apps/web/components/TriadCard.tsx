@@ -1,6 +1,6 @@
 "use client";
 
-import { ScoredItinerary } from "../lib/types";
+import { ScoredItinerary } from "@/lib/types";
 
 interface TriadCardProps {
   itinerary: ScoredItinerary;

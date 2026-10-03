@@ -3,9 +3,9 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import TriadCard from "../../components/TriadCard";
-import { executeRecoverySearch, requestApprovalToken } from "../../lib/api";
-import { RecoverySearchResponse, ScoredItinerary } from "../../lib/types";
+import TriadCard from "@/components/TriadCard";
+import { executeRecoverySearch, requestApprovalToken } from "@/lib/api";
+import { RecoverySearchResponse, ScoredItinerary } from "@/lib/types";
 
 function ResultsContent() {
   const router = useRouter();
