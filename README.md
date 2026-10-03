@@ -1,12 +1,15 @@
 # SANKALP (संकल्प)
 ### Autonomous Multi-Modal Transit Recovery Platform for India
 
-[![Tests](https://img.shields.io/badge/tests-42%20passed-emerald)](tests/)
+[![Tests](https://img.shields.io/badge/tests-47%20passed-emerald)](tests/)
+[![Live Demo](https://img.shields.io/badge/demo-GitHub%20Pages-brightgreen)](https://priyanshu-2308.github.io/SANKALP/)
 [![Median Latency](https://img.shields.io/badge/median%20latency-36.7ms-blue)](data/benchmark_results.json)
 [![Monte Carlo](https://img.shields.io/badge/simulations-10%2C000%20trials-purple)](packages/engine/sankalp_engine/simulation.py)
 [![Architecture](https://img.shields.io/badge/architecture-decoupled%20monorepo-black)](docs/ARCHITECTURE.md)
 [![License](https://img.shields.io/badge/license-MIT-gray)](LICENSE)
 
+> **Live Interactive Demo:** Experience SANKALP directly in your browser on [GitHub Pages](https://priyanshu-2308.github.io/SANKALP/) with full client-side Monte Carlo execution.
+>
 > **Important Disclosure:** SANKALP is a portfolio engineering prototype and decision engine. All schedules and delay distributions are **deterministically simulated** using network geometry over 166 real Indian stations and airports. It is not connected to live IRCTC or airline reservation systems and does not process real financial transactions.
 
 ---
@@ -187,7 +190,7 @@ pip install -r requirements.txt
 
 ### 2. Run Test Suites
 ```bash
-# Run all 42 tests (unit, property, AST guard, benchmarks, and API tests)
+# Run all 47 tests (unit, property, AST guard, benchmarks, and API tests)
 pytest -v
 ```
 
@@ -222,11 +225,12 @@ sankalp/
 │   │   │   └── schemas/         # Pydantic request/response models
 │   └── web/                     # Next.js App Router (TypeScript + Tailwind)
 │       ├── app/
-│       │   ├── page.tsx         # Home search screen
+│       │   ├── page.tsx         # Home search screen & NL prompt assistant
 │       │   ├── results/         # 3-card Triad comparison view
 │       │   ├── confirm/         # 15-min token approval countdown
 │       │   └── trip/[id]/       # Live trip monitor & delay simulator
-│       └── components/          # TriadCard, StationAutocomplete, DelaySimulator
+│       ├── components/          # TriadCard, StationAutocomplete, DelaySimulator
+│       └── lib/                 # API client, types & offline engine fallback
 ├── packages/
 │   └── engine/                  # Pure Python Decision Engine (Zero I/O)
 │       └── sankalp_engine/
@@ -236,6 +240,7 @@ sankalp/
 │           ├── pareto.py        # Pareto frontier multi-objective selection
 │           ├── scoring.py       # Hard budget invariant scoring logic
 │           ├── graph_search.py  # Time-dependent pathfinding (direct, 1-hop, 2-hop)
+│           ├── nl_parser.py     # Natural language journey query parser
 │           ├── generator.py     # Deterministic seeded schedule generator
 │           └── models.py        # Integer-paise domain models (IST timezone)
 ├── data/
@@ -254,7 +259,8 @@ sankalp/
 │   ├── PRODUCT_SPEC.md          # Product specification & user stories
 │   └── DATA_LICENSES.md         # Open dataset licensing attribution
 └── .github/workflows/
-    └── ci.yml                   # Automated GitHub Actions test pipeline
+    ├── ci.yml                   # Automated GitHub Actions test pipeline
+    └── deploy.yml               # Automated GitHub Pages static deployment
 ```
 
 ---
