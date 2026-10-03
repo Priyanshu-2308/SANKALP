@@ -1,17 +1,10 @@
 # SANKALP (संकल्प)
 ### Autonomous Multi-Modal Transit Recovery Platform for India
 
-[![CI](https://github.com/Priyanshu-2308/SANKALP/actions/workflows/ci.yml/badge.svg)](https://github.com/Priyanshu-2308/SANKALP/actions/workflows/ci.yml)
-[![Deploy Pages](https://github.com/Priyanshu-2308/SANKALP/actions/workflows/deploy.yml/badge.svg)](https://github.com/Priyanshu-2308/SANKALP/actions/workflows/deploy.yml)
-[![Live Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue)](https://priyanshu-2308.github.io/SANKALP/)
-[![Python](https://img.shields.io/badge/python-3.12%20%7C%203.14-blue)](packages/engine/)
-[![Next.js](https://img.shields.io/badge/frontend-Next.js%2015-black)](apps/web/)
-[![Median Latency](https://img.shields.io/badge/median%20latency-36.7ms-blue)](data/benchmark_results.json)
-[![License](https://img.shields.io/badge/license-MIT-gray)](LICENSE)
-
 SANKALP is an autonomous multi-modal decision engine and web application that computes instant recovery journeys combining **Rail, Flight, Intercity Bus, and Cab** when Indian transit schedules suffer cancellations, diversions, or extreme delays.
 
-> **Portfolio Disclosure:** SANKALP is an engineering prototype. Schedules and delay distributions are deterministically simulated using network geometry over 166 verified Indian railway junctions and airports; they are **not real-time IRCTC or NTES data**. It is not connected to live booking or government tracking systems.
+> NOTE:** SANKALP is an engineering prototype. Schedules and delay distributions are deterministically simulated using network geometry over 166 verified Indian railway junctions and airports; they are **not real-time IRCTC or NTES data**. It is not connected to live booking or government tracking systems.
+> Here's the demo: https://priyanshu-2308.github.io/SANKALP/
 
 ---
 
