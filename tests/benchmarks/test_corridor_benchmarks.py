@@ -150,7 +150,7 @@ def test_eight_corridors_benchmark_suite() -> None:
     p90_latency_ms = sorted(execution_times_ms)[int(len(execution_times_ms) * 0.9)]
     print(f"\nMedian Latency: {median_latency_ms:.2f}ms | P90 Latency: {p90_latency_ms:.2f}ms")
 
-    # Save benchmark records to disk for README and INTERVIEW_NOTES reference
+    # Save benchmark records to disk for documentation reference
     BENCHMARK_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(BENCHMARK_OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(

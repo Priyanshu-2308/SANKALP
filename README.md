@@ -252,7 +252,6 @@ sankalp/
 ├── docs/
 │   ├── ARCHITECTURE.md          # Complete architectural specification
 │   ├── PRODUCT_SPEC.md          # Product specification & user stories
-│   ├── INTERVIEW_NOTES.md       # 10 deep technical interview Q&As
 │   └── DATA_LICENSES.md         # Open dataset licensing attribution
 └── .github/workflows/
     └── ci.yml                   # Automated GitHub Actions test pipeline

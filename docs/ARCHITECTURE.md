@@ -84,8 +84,7 @@ sankalp/
 │   └── stitch/                  # Extracted Stitch designs & screenshots (ID: 5680212938138663204)
 ├── docs/
 │   ├── PRODUCT_SPEC.md
-│   ├── ARCHITECTURE.md
-│   └── INTERVIEW_NOTES.md
+│   └── ARCHITECTURE.md
 └── tests/
     ├── unit/                    # Unit tests for graph search, Monte Carlo, scoring
     ├── property/                # Hypothesis property-based tests (invariants)
