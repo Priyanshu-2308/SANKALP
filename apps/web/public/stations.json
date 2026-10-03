@@ -1,0 +1,2498 @@
+[
+  {
+    "id": "STN_NDLS",
+    "name": "New Delhi Railway Station",
+    "code": "NDLS",
+    "type": "rail_station",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "lat": 28.6429,
+    "lon": 77.2195,
+    "aliases": [
+      "Delhi",
+      "NDLS",
+      "Dilli"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_DLI",
+    "name": "Old Delhi Junction",
+    "code": "DLI",
+    "type": "rail_station",
+    "city": "Delhi",
+    "state": "Delhi",
+    "lat": 28.6616,
+    "lon": 77.2285,
+    "aliases": [
+      "Old Delhi",
+      "Purani Dilli"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_NZM",
+    "name": "Hazrat Nizamuddin",
+    "code": "NZM",
+    "type": "rail_station",
+    "city": "Delhi",
+    "state": "Delhi",
+    "lat": 28.5888,
+    "lon": 77.2536,
+    "aliases": [
+      "Nizamuddin",
+      "NZM"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ANVT",
+    "name": "Anand Vihar Terminal",
+    "code": "ANVT",
+    "type": "rail_station",
+    "city": "Delhi",
+    "state": "Delhi",
+    "lat": 28.6508,
+    "lon": 77.3152,
+    "aliases": [
+      "Anand Vihar"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_DEL",
+    "name": "Indira Gandhi International Airport",
+    "code": "DEL",
+    "type": "airport",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "lat": 28.5562,
+    "lon": 77.1,
+    "aliases": [
+      "IGI Airport",
+      "Delhi Airport",
+      "DEL"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_DEL_KG",
+    "name": "Maharana Pratap ISBT Kashmere Gate",
+    "code": "ISBT-KG",
+    "type": "bus_terminal",
+    "city": "Delhi",
+    "state": "Delhi",
+    "lat": 28.6675,
+    "lon": 77.2282,
+    "aliases": [
+      "Kashmere Gate ISBT",
+      "Delhi Bus Stand"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_DEL_AV",
+    "name": "Swami Vivekanand ISBT Anand Vihar",
+    "code": "ISBT-AV",
+    "type": "bus_terminal",
+    "city": "Delhi",
+    "state": "Delhi",
+    "lat": 28.6495,
+    "lon": 77.316,
+    "aliases": [
+      "Anand Vihar ISBT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_CSMT",
+    "name": "Chhatrapati Shivaji Maharaj Terminus",
+    "code": "CSMT",
+    "type": "rail_station",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 18.9402,
+    "lon": 72.8356,
+    "aliases": [
+      "Mumbai CSMT",
+      "VT",
+      "Bombay VT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MMCT",
+    "name": "Mumbai Central",
+    "code": "MMCT",
+    "type": "rail_station",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 18.9696,
+    "lon": 72.8193,
+    "aliases": [
+      "Bombay Central",
+      "BCT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_DR",
+    "name": "Dadar Junction",
+    "code": "DR",
+    "type": "rail_station",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.0183,
+    "lon": 72.8433,
+    "aliases": [
+      "Dadar"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BDTS",
+    "name": "Bandra Terminus",
+    "code": "BDTS",
+    "type": "rail_station",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.0628,
+    "lon": 72.8407,
+    "aliases": [
+      "Bandra"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_LTT",
+    "name": "Lokmanya Tilak Terminus",
+    "code": "LTT",
+    "type": "rail_station",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.0699,
+    "lon": 72.8906,
+    "aliases": [
+      "Kurla Terminus",
+      "LTT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_BOM",
+    "name": "Chhatrapati Shivaji Maharaj International Airport",
+    "code": "BOM",
+    "type": "airport",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.0896,
+    "lon": 72.8656,
+    "aliases": [
+      "Mumbai Airport",
+      "Sahar Airport",
+      "BOM"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_BOM_BOR",
+    "name": "Borivali MSRTC Bus Station",
+    "code": "MSRTC-BOR",
+    "type": "bus_terminal",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.2291,
+    "lon": 72.8574,
+    "aliases": [
+      "Borivali Bus Stand"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_PUNE",
+    "name": "Pune Junction",
+    "code": "PUNE",
+    "type": "rail_station",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "lat": 18.5284,
+    "lon": 73.8743,
+    "aliases": [
+      "Pune",
+      "Poona"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_PNQ",
+    "name": "Pune Airport",
+    "code": "PNQ",
+    "type": "airport",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "lat": 18.5822,
+    "lon": 73.9197,
+    "aliases": [
+      "Lohegaon Airport",
+      "PNQ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_PUNE_SW",
+    "name": "Swargate Bus Terminal",
+    "code": "MSRTC-SW",
+    "type": "bus_terminal",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "lat": 18.5018,
+    "lon": 73.8586,
+    "aliases": [
+      "Swargate Pune",
+      "Pune Bus Stand"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_PUNE_SH",
+    "name": "Shivajinagar Bus Station",
+    "code": "MSRTC-SH",
+    "type": "bus_terminal",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "lat": 18.5314,
+    "lon": 73.8446,
+    "aliases": [
+      "Shivajinagar ST Stand"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_SBC",
+    "name": "KSR Bengaluru City Junction",
+    "code": "SBC",
+    "type": "rail_station",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "lat": 12.9784,
+    "lon": 77.5694,
+    "aliases": [
+      "Bangalore City",
+      "Majestic Station",
+      "SBC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_YPR",
+    "name": "Yesvantpur Junction",
+    "code": "YPR",
+    "type": "rail_station",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "lat": 13.0238,
+    "lon": 77.5503,
+    "aliases": [
+      "Yesvantpur",
+      "YPR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_BLR",
+    "name": "Kempegowda International Airport",
+    "code": "BLR",
+    "type": "airport",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "lat": 13.1986,
+    "lon": 77.7066,
+    "aliases": [
+      "Bangalore Airport",
+      "KIA",
+      "BLR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_BLR_MAJ",
+    "name": "Kempegowda Bus Station Majestic",
+    "code": "KSRTC-MAJ",
+    "type": "bus_terminal",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "lat": 12.9767,
+    "lon": 77.5713,
+    "aliases": [
+      "Majestic Bus Stand",
+      "Bangalore Bus Station"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MAS",
+    "name": "Puratchi Thalaivar Dr. M.G.R. Chennai Central",
+    "code": "MAS",
+    "type": "rail_station",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "lat": 13.0827,
+    "lon": 80.2755,
+    "aliases": [
+      "Chennai Central",
+      "Madras Central",
+      "MAS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MS",
+    "name": "Chennai Egmore",
+    "code": "MS",
+    "type": "rail_station",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "lat": 13.0784,
+    "lon": 80.2612,
+    "aliases": [
+      "Egmore",
+      "MS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_MAA",
+    "name": "Chennai International Airport",
+    "code": "MAA",
+    "type": "airport",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "lat": 12.9941,
+    "lon": 80.1709,
+    "aliases": [
+      "Meenambakkam Airport",
+      "MAA"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_MAA_CMBT",
+    "name": "Chennai Mofussil Bus Terminus Koyambedu",
+    "code": "CMBT",
+    "type": "bus_terminal",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "lat": 13.0673,
+    "lon": 80.2057,
+    "aliases": [
+      "Koyambedu Bus Stand",
+      "CMBT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_HWH",
+    "name": "Howrah Junction",
+    "code": "HWH",
+    "type": "rail_station",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.584,
+    "lon": 88.3426,
+    "aliases": [
+      "Howrah",
+      "HWH"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_SDAH",
+    "name": "Sealdah",
+    "code": "SDAH",
+    "type": "rail_station",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.5697,
+    "lon": 88.3712,
+    "aliases": [
+      "Sealdah",
+      "SDAH"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_KOAA",
+    "name": "Kolkata Railway Station",
+    "code": "KOAA",
+    "type": "rail_station",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.6025,
+    "lon": 88.3789,
+    "aliases": [
+      "Chitpur Station"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_CCU",
+    "name": "Netaji Subhash Chandra Bose International Airport",
+    "code": "CCU",
+    "type": "airport",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.6547,
+    "lon": 88.4467,
+    "aliases": [
+      "Dum Dum Airport",
+      "Kolkata Airport",
+      "CCU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_CCU_ESP",
+    "name": "Esplanade Bus Terminus",
+    "code": "ESPLANADE",
+    "type": "bus_terminal",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.5658,
+    "lon": 88.3516,
+    "aliases": [
+      "Esplanade Bus Stand",
+      "Dharmatala"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_SC",
+    "name": "Secunderabad Junction",
+    "code": "SC",
+    "type": "rail_station",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "lat": 17.4339,
+    "lon": 78.5017,
+    "aliases": [
+      "Secunderabad",
+      "SC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_HYB",
+    "name": "Hyderabad Deccan Nampally",
+    "code": "HYB",
+    "type": "rail_station",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "lat": 17.3924,
+    "lon": 78.4697,
+    "aliases": [
+      "Nampally",
+      "Hyderabad Station"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_HYD",
+    "name": "Rajiv Gandhi International Airport",
+    "code": "HYD",
+    "type": "airport",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "lat": 17.2403,
+    "lon": 78.4294,
+    "aliases": [
+      "Shamshabad Airport",
+      "Hyderabad Airport",
+      "HYD"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_HYD_MGBS",
+    "name": "Mahatma Gandhi Bus Station",
+    "code": "MGBS",
+    "type": "bus_terminal",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "lat": 17.3788,
+    "lon": 78.4839,
+    "aliases": [
+      "Imlibun Bus Stand",
+      "MGBS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ADI",
+    "name": "Ahmedabad Junction",
+    "code": "ADI",
+    "type": "rail_station",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "lat": 23.0234,
+    "lon": 72.6011,
+    "aliases": [
+      "Kalupur Station",
+      "Ahmedabad",
+      "ADI"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_AMD",
+    "name": "Sardar Vallabhbhai Patel International Airport",
+    "code": "AMD",
+    "type": "airport",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "lat": 23.0772,
+    "lon": 72.6347,
+    "aliases": [
+      "Ahmedabad Airport",
+      "AMD"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_ADI_GM",
+    "name": "Geeta Mandir Central Bus Station",
+    "code": "GSRTC-GM",
+    "type": "bus_terminal",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "lat": 23.0125,
+    "lon": 72.5898,
+    "aliases": [
+      "Geeta Mandir Bus Stand"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_JP",
+    "name": "Jaipur Junction",
+    "code": "JP",
+    "type": "rail_station",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "lat": 26.92,
+    "lon": 75.7878,
+    "aliases": [
+      "Jaipur",
+      "JP"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_JAI",
+    "name": "Jaipur International Airport",
+    "code": "JAI",
+    "type": "airport",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "lat": 26.8242,
+    "lon": 75.8122,
+    "aliases": [
+      "Sanganer Airport",
+      "JAI"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_JP_SC",
+    "name": "Sindhi Camp Bus Station",
+    "code": "RSRTC-SC",
+    "type": "bus_terminal",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "lat": 26.9238,
+    "lon": 75.7997,
+    "aliases": [
+      "Sindhi Camp Jaipur"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_LKO",
+    "name": "Lucknow Charbagh",
+    "code": "LKO",
+    "type": "rail_station",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "lat": 26.8314,
+    "lon": 80.923,
+    "aliases": [
+      "Charbagh",
+      "LKO"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_LKO",
+    "name": "Chaudhary Charan Singh International Airport",
+    "code": "LKO-AIR",
+    "type": "airport",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "lat": 26.7606,
+    "lon": 80.8893,
+    "aliases": [
+      "Amausi Airport",
+      "LKO"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_LKO_AL",
+    "name": "Alambagh Bus Terminal",
+    "code": "UPSRTC-AL",
+    "type": "bus_terminal",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "lat": 26.8142,
+    "lon": 80.9022,
+    "aliases": [
+      "Alambagh Bus Stand"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_CNB",
+    "name": "Kanpur Central",
+    "code": "CNB",
+    "type": "rail_station",
+    "city": "Kanpur",
+    "state": "Uttar Pradesh",
+    "lat": 26.4539,
+    "lon": 80.3513,
+    "aliases": [
+      "Kanpur",
+      "CNB"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_CNB_JH",
+    "name": "Jhakarkati Bus Station",
+    "code": "UPSRTC-JH",
+    "type": "bus_terminal",
+    "city": "Kanpur",
+    "state": "Uttar Pradesh",
+    "lat": 26.4468,
+    "lon": 80.3562,
+    "aliases": [
+      "Kanpur Bus Stand"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_BSB",
+    "name": "Varanasi Junction",
+    "code": "BSB",
+    "type": "rail_station",
+    "city": "Varanasi",
+    "state": "Uttar Pradesh",
+    "lat": 25.3283,
+    "lon": 82.9863,
+    "aliases": [
+      "Varanasi Cantt",
+      "Banaras",
+      "Kashi"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_VNS",
+    "name": "Lal Bahadur Shastri International Airport",
+    "code": "VNS",
+    "type": "airport",
+    "city": "Varanasi",
+    "state": "Uttar Pradesh",
+    "lat": 25.4524,
+    "lon": 82.8593,
+    "aliases": [
+      "Babatpur Airport",
+      "VNS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_PRYJ",
+    "name": "Prayagraj Junction",
+    "code": "PRYJ",
+    "type": "rail_station",
+    "city": "Prayagraj",
+    "state": "Uttar Pradesh",
+    "lat": 25.4484,
+    "lon": 81.8333,
+    "aliases": [
+      "Allahabad Junction",
+      "PRYJ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_GKP",
+    "name": "Gorakhpur Junction",
+    "code": "GKP",
+    "type": "rail_station",
+    "city": "Gorakhpur",
+    "state": "Uttar Pradesh",
+    "lat": 26.7588,
+    "lon": 83.3818,
+    "aliases": [
+      "Gorakhpur",
+      "GKP"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "BUS_GKP_BS",
+    "name": "Gorakhpur Bus Stand",
+    "code": "UPSRTC-GKP",
+    "type": "bus_terminal",
+    "city": "Gorakhpur",
+    "state": "Uttar Pradesh",
+    "lat": 26.7562,
+    "lon": 83.385,
+    "aliases": [
+      "Gorakhpur Stand"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_PNBE",
+    "name": "Patna Junction",
+    "code": "PNBE",
+    "type": "rail_station",
+    "city": "Patna",
+    "state": "Bihar",
+    "lat": 25.6022,
+    "lon": 85.1376,
+    "aliases": [
+      "Patna",
+      "PNBE"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_PAT",
+    "name": "Jay Prakash Narayan Airport",
+    "code": "PAT",
+    "type": "airport",
+    "city": "Patna",
+    "state": "Bihar",
+    "lat": 25.5913,
+    "lon": 85.088,
+    "aliases": [
+      "Patna Airport",
+      "PAT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BBS",
+    "name": "Bhubaneswar Railway Station",
+    "code": "BBS",
+    "type": "rail_station",
+    "city": "Bhubaneswar",
+    "state": "Odisha",
+    "lat": 20.2668,
+    "lon": 85.8436,
+    "aliases": [
+      "Bhubaneswar",
+      "BBS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_BBI",
+    "name": "Biju Patnaik International Airport",
+    "code": "BBI",
+    "type": "airport",
+    "city": "Bhubaneswar",
+    "state": "Odisha",
+    "lat": 20.2444,
+    "lon": 85.8178,
+    "aliases": [
+      "Bhubaneswar Airport",
+      "BBI"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BPL",
+    "name": "Bhopal Junction",
+    "code": "BPL",
+    "type": "rail_station",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "lat": 23.2684,
+    "lon": 77.4126,
+    "aliases": [
+      "Bhopal",
+      "BPL"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ET",
+    "name": "Itarsi Junction",
+    "code": "ET",
+    "type": "rail_station",
+    "city": "Itarsi",
+    "state": "Madhya Pradesh",
+    "lat": 22.6139,
+    "lon": 77.7607,
+    "aliases": [
+      "Itarsi",
+      "ET"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_BHO",
+    "name": "Raja Bhoj Airport",
+    "code": "BHO",
+    "type": "airport",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "lat": 23.2875,
+    "lon": 77.3378,
+    "aliases": [
+      "Bhopal Airport",
+      "BHO"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_JBP",
+    "name": "Jabalpur Junction",
+    "code": "JBP",
+    "type": "rail_station",
+    "city": "Jabalpur",
+    "state": "Madhya Pradesh",
+    "lat": 23.1611,
+    "lon": 79.9575,
+    "aliases": [
+      "Jabalpur",
+      "JBP"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "BUS_JBP_ISBT",
+    "name": "Deendayal ISBT Jabalpur",
+    "code": "ISBT-JBP",
+    "type": "bus_terminal",
+    "city": "Jabalpur",
+    "state": "Madhya Pradesh",
+    "lat": 23.1812,
+    "lon": 79.9321,
+    "aliases": [
+      "Jabalpur Bus Stand"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_NGP",
+    "name": "Nagpur Junction",
+    "code": "NGP",
+    "type": "rail_station",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "lat": 21.1524,
+    "lon": 79.0882,
+    "aliases": [
+      "Nagpur",
+      "NGP"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_NAG",
+    "name": "Dr. Babasaheb Ambedkar International Airport",
+    "code": "NAG",
+    "type": "airport",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "lat": 21.0922,
+    "lon": 79.0472,
+    "aliases": [
+      "Nagpur Airport",
+      "NAG"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_CDG",
+    "name": "Chandigarh Junction",
+    "code": "CDG",
+    "type": "rail_station",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "lat": 30.7022,
+    "lon": 76.8219,
+    "aliases": [
+      "Chandigarh",
+      "CDG"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_IXC",
+    "name": "Shaheed Bhagat Singh International Airport",
+    "code": "IXC",
+    "type": "airport",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "lat": 30.6735,
+    "lon": 76.7885,
+    "aliases": [
+      "Chandigarh Airport",
+      "Mohali Airport",
+      "IXC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ASR",
+    "name": "Amritsar Junction",
+    "code": "ASR",
+    "type": "rail_station",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "lat": 31.634,
+    "lon": 74.8723,
+    "aliases": [
+      "Amritsar",
+      "ASR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_ATQ",
+    "name": "Sri Guru Ram Dass Jee International Airport",
+    "code": "ATQ",
+    "type": "airport",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "lat": 31.7096,
+    "lon": 74.7973,
+    "aliases": [
+      "Amritsar Airport",
+      "ATQ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_GHY",
+    "name": "Guwahati",
+    "code": "GHY",
+    "type": "rail_station",
+    "city": "Guwahati",
+    "state": "Assam",
+    "lat": 26.1824,
+    "lon": 91.7519,
+    "aliases": [
+      "Guwahati",
+      "GHY"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_GAU",
+    "name": "Lokpriya Gopinath Bordoloi International Airport",
+    "code": "GAU",
+    "type": "airport",
+    "city": "Guwahati",
+    "state": "Assam",
+    "lat": 26.1061,
+    "lon": 91.5859,
+    "aliases": [
+      "Guwahati Airport",
+      "Borjhar Airport",
+      "GAU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "BUS_GHY_ISBT",
+    "name": "ISBT Betkuchi Guwahati",
+    "code": "ASTC-GHY",
+    "type": "bus_terminal",
+    "city": "Guwahati",
+    "state": "Assam",
+    "lat": 26.1158,
+    "lon": 91.7346,
+    "aliases": [
+      "Guwahati ISBT"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_MAO",
+    "name": "Madgaon Junction",
+    "code": "MAO",
+    "type": "rail_station",
+    "city": "Madgaon",
+    "state": "Goa",
+    "lat": 15.275,
+    "lon": 73.9782,
+    "aliases": [
+      "Margao",
+      "Madgaon",
+      "MAO"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_GOI",
+    "name": "Dabolim Airport",
+    "code": "GOI",
+    "type": "airport",
+    "city": "Dabolim",
+    "state": "Goa",
+    "lat": 15.3808,
+    "lon": 73.8314,
+    "aliases": [
+      "Goa Airport",
+      "Dabolim",
+      "GOI"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ERS",
+    "name": "Ernakulam Junction",
+    "code": "ERS",
+    "type": "rail_station",
+    "city": "Kochi",
+    "state": "Kerala",
+    "lat": 9.9675,
+    "lon": 76.2917,
+    "aliases": [
+      "Ernakulam South",
+      "Cochin Station",
+      "ERS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_COK",
+    "name": "Cochin International Airport",
+    "code": "COK",
+    "type": "airport",
+    "city": "Kochi",
+    "state": "Kerala",
+    "lat": 10.152,
+    "lon": 76.4019,
+    "aliases": [
+      "Nedumbassery Airport",
+      "Kochi Airport",
+      "COK"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_TVC",
+    "name": "Thiruvananthapuram Central",
+    "code": "TVC",
+    "type": "rail_station",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "lat": 8.4871,
+    "lon": 76.953,
+    "aliases": [
+      "Trivandrum Central",
+      "TVC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_TRV",
+    "name": "Thiruvananthapuram International Airport",
+    "code": "TRV",
+    "type": "airport",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "lat": 8.4821,
+    "lon": 76.92,
+    "aliases": [
+      "Trivandrum Airport",
+      "TRV"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ST",
+    "name": "Surat",
+    "code": "ST",
+    "type": "rail_station",
+    "city": "Surat",
+    "state": "Gujarat",
+    "lat": 21.2049,
+    "lon": 72.8407,
+    "aliases": [
+      "Surat",
+      "ST"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BRC",
+    "name": "Vadodara Junction",
+    "code": "BRC",
+    "type": "rail_station",
+    "city": "Vadodara",
+    "state": "Gujarat",
+    "lat": 22.3107,
+    "lon": 73.1812,
+    "aliases": [
+      "Baroda",
+      "BRC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_INDB",
+    "name": "Indore Junction",
+    "code": "INDB",
+    "type": "rail_station",
+    "city": "Indore",
+    "state": "Madhya Pradesh",
+    "lat": 22.7177,
+    "lon": 75.8682,
+    "aliases": [
+      "Indore",
+      "INDB"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_IDR",
+    "name": "Devi Ahilyabai Holkar Airport",
+    "code": "IDR",
+    "type": "airport",
+    "city": "Indore",
+    "state": "Madhya Pradesh",
+    "lat": 22.7217,
+    "lon": 75.8011,
+    "aliases": [
+      "Indore Airport",
+      "IDR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_R",
+    "name": "Raipur Junction",
+    "code": "R",
+    "type": "rail_station",
+    "city": "Raipur",
+    "state": "Chhattisgarh",
+    "lat": 21.2586,
+    "lon": 81.63,
+    "aliases": [
+      "Raipur",
+      "R"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_RPR",
+    "name": "Swami Vivekananda Airport",
+    "code": "RPR",
+    "type": "airport",
+    "city": "Raipur",
+    "state": "Chhattisgarh",
+    "lat": 21.1804,
+    "lon": 81.7388,
+    "aliases": [
+      "Mana Airport",
+      "RPR"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_BSP",
+    "name": "Bilaspur Junction",
+    "code": "BSP",
+    "type": "rail_station",
+    "city": "Bilaspur",
+    "state": "Chhattisgarh",
+    "lat": 22.0838,
+    "lon": 82.1648,
+    "aliases": [
+      "Bilaspur",
+      "BSP"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_RNC",
+    "name": "Ranchi Junction",
+    "code": "RNC",
+    "type": "rail_station",
+    "city": "Ranchi",
+    "state": "Jharkhand",
+    "lat": 23.3533,
+    "lon": 85.34,
+    "aliases": [
+      "Ranchi",
+      "RNC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_IXR",
+    "name": "Birsa Munda Airport",
+    "code": "IXR",
+    "type": "airport",
+    "city": "Ranchi",
+    "state": "Jharkhand",
+    "lat": 23.3143,
+    "lon": 85.3217,
+    "aliases": [
+      "Ranchi Airport",
+      "IXR"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_VSKP",
+    "name": "Visakhapatnam Junction",
+    "code": "VSKP",
+    "type": "rail_station",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "lat": 17.7215,
+    "lon": 83.2872,
+    "aliases": [
+      "Vizag",
+      "VSKP"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_VTZ",
+    "name": "Visakhapatnam International Airport",
+    "code": "VTZ",
+    "type": "airport",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "lat": 17.7212,
+    "lon": 83.2245,
+    "aliases": [
+      "Vizag Airport",
+      "VTZ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BZA",
+    "name": "Vijayawada Junction",
+    "code": "BZA",
+    "type": "rail_station",
+    "city": "Vijayawada",
+    "state": "Andhra Pradesh",
+    "lat": 16.5186,
+    "lon": 80.6198,
+    "aliases": [
+      "Vijayawada",
+      "Bezawada",
+      "BZA"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_CBE",
+    "name": "Coimbatore Junction",
+    "code": "CBE",
+    "type": "rail_station",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu",
+    "lat": 10.9979,
+    "lon": 76.9628,
+    "aliases": [
+      "Coimbatore",
+      "CBE"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MDU",
+    "name": "Madurai Junction",
+    "code": "MDU",
+    "type": "rail_station",
+    "city": "Madurai",
+    "state": "Tamil Nadu",
+    "lat": 9.9252,
+    "lon": 78.11,
+    "aliases": [
+      "Madurai",
+      "MDU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_AGC",
+    "name": "Agra Cantt",
+    "code": "AGC",
+    "type": "rail_station",
+    "city": "Agra",
+    "state": "Uttar Pradesh",
+    "lat": 27.1584,
+    "lon": 77.9922,
+    "aliases": [
+      "Agra",
+      "Taj Mahal Station",
+      "AGC"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_GWL",
+    "name": "Gwalior Junction",
+    "code": "GWL",
+    "type": "rail_station",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "lat": 26.2183,
+    "lon": 78.1828,
+    "aliases": [
+      "Gwalior",
+      "GWL"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_VGLJ",
+    "name": "Virangana Lakshmibai Jhansi",
+    "code": "VGLJ",
+    "type": "rail_station",
+    "city": "Jhansi",
+    "state": "Uttar Pradesh",
+    "lat": 25.4484,
+    "lon": 78.5685,
+    "aliases": [
+      "Jhansi",
+      "VGLB",
+      "JHS"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_KLK",
+    "name": "Kalka",
+    "code": "KLK",
+    "type": "rail_station",
+    "city": "Kalka",
+    "state": "Haryana",
+    "lat": 30.8354,
+    "lon": 76.9348,
+    "aliases": [
+      "Kalka Shimla Gateway",
+      "KLK"
+    ],
+    "tier": 3
+  },
+  {
+    "id": "BUS_SML",
+    "name": "Shimla ISBT Tutikandi",
+    "code": "HRTC-SML",
+    "type": "bus_terminal",
+    "city": "Shimla",
+    "state": "Himachal Pradesh",
+    "lat": 31.0965,
+    "lon": 77.1528,
+    "aliases": [
+      "Shimla Bus Stand",
+      "Tutikandi"
+    ],
+    "tier": 3
+  },
+  {
+    "id": "BUS_MNL",
+    "name": "Manali Private Bus Stand",
+    "code": "HRTC-MNL",
+    "type": "bus_terminal",
+    "city": "Manali",
+    "state": "Himachal Pradesh",
+    "lat": 32.2396,
+    "lon": 77.1887,
+    "aliases": [
+      "Manali Bus Stand"
+    ],
+    "tier": 3
+  },
+  {
+    "id": "STN_HW",
+    "name": "Haridwar",
+    "code": "HW",
+    "type": "rail_station",
+    "city": "Haridwar",
+    "state": "Uttarakhand",
+    "lat": 29.9457,
+    "lon": 78.1564,
+    "aliases": [
+      "Haridwar",
+      "HW"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_DDN",
+    "name": "Dehradun",
+    "code": "DDN",
+    "type": "rail_station",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "lat": 30.3155,
+    "lon": 78.0322,
+    "aliases": [
+      "Dehradun",
+      "DDN"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "BUS_MSH",
+    "name": "Mussoorie Picture Palace Bus Stand",
+    "code": "UKTC-MSH",
+    "type": "bus_terminal",
+    "city": "Mussoorie",
+    "state": "Uttarakhand",
+    "lat": 30.4578,
+    "lon": 78.0815,
+    "aliases": [
+      "Mussoorie Stand"
+    ],
+    "tier": 3
+  },
+  {
+    "id": "STN_JAT",
+    "name": "Jammu Tawi",
+    "code": "JAT",
+    "type": "rail_station",
+    "city": "Jammu",
+    "state": "Jammu and Kashmir",
+    "lat": 32.7061,
+    "lon": 74.88,
+    "aliases": [
+      "Jammu",
+      "JAT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_SXR",
+    "name": "Sheikh ul-Alam International Airport",
+    "code": "SXR",
+    "type": "airport",
+    "city": "Srinagar",
+    "state": "Jammu and Kashmir",
+    "lat": 33.9871,
+    "lon": 74.7744,
+    "aliases": [
+      "Srinagar Airport",
+      "SXR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_JU",
+    "name": "Jodhpur Junction",
+    "code": "JU",
+    "type": "rail_station",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "lat": 26.2844,
+    "lon": 73.0189,
+    "aliases": [
+      "Jodhpur",
+      "JU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_UDZ",
+    "name": "Udaipur City",
+    "code": "UDZ",
+    "type": "rail_station",
+    "city": "Udaipur",
+    "state": "Rajasthan",
+    "lat": 24.5804,
+    "lon": 73.6978,
+    "aliases": [
+      "Udaipur",
+      "UDZ"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_KOTA",
+    "name": "Kota Junction",
+    "code": "KOTA",
+    "type": "rail_station",
+    "city": "Kota",
+    "state": "Rajasthan",
+    "lat": 25.2185,
+    "lon": 75.8648,
+    "aliases": [
+      "Kota",
+      "KOTA"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_DDU",
+    "name": "Pt. Deen Dayal Upadhyaya Junction",
+    "code": "DDU",
+    "type": "rail_station",
+    "city": "Mughalsarai",
+    "state": "Uttar Pradesh",
+    "lat": 25.2818,
+    "lon": 83.1189,
+    "aliases": [
+      "Mughalsarai",
+      "DDU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MB",
+    "name": "Moradabad Junction",
+    "code": "MB",
+    "type": "rail_station",
+    "city": "Moradabad",
+    "state": "Uttar Pradesh",
+    "lat": 28.8389,
+    "lon": 78.7768,
+    "aliases": [
+      "Moradabad",
+      "MB"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_BE",
+    "name": "Bareilly Junction",
+    "code": "BE",
+    "type": "rail_station",
+    "city": "Bareilly",
+    "state": "Uttar Pradesh",
+    "lat": 28.3377,
+    "lon": 79.4208,
+    "aliases": [
+      "Bareilly",
+      "BE"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_MTJ",
+    "name": "Mathura Junction",
+    "code": "MTJ",
+    "type": "rail_station",
+    "city": "Mathura",
+    "state": "Uttar Pradesh",
+    "lat": 27.4924,
+    "lon": 77.6737,
+    "aliases": [
+      "Mathura",
+      "MTJ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_AY",
+    "name": "Ayodhya Cantt",
+    "code": "AYC",
+    "type": "rail_station",
+    "city": "Ayodhya",
+    "state": "Uttar Pradesh",
+    "lat": 26.7768,
+    "lon": 82.1378,
+    "aliases": [
+      "Faizabad",
+      "Ayodhya"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_AYJ",
+    "name": "Maharishi Valmiki International Airport",
+    "code": "AYJ",
+    "type": "airport",
+    "city": "Ayodhya",
+    "state": "Uttar Pradesh",
+    "lat": 26.7444,
+    "lon": 82.1556,
+    "aliases": [
+      "Ayodhya Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_MFP",
+    "name": "Muzaffarpur Junction",
+    "code": "MFP",
+    "type": "rail_station",
+    "city": "Muzaffarpur",
+    "state": "Bihar",
+    "lat": 26.1209,
+    "lon": 85.3906,
+    "aliases": [
+      "Muzaffarpur",
+      "MFP"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_DBG",
+    "name": "Darbhanga Junction",
+    "code": "DBG",
+    "type": "rail_station",
+    "city": "Darbhanga",
+    "state": "Bihar",
+    "lat": 26.1542,
+    "lon": 85.8918,
+    "aliases": [
+      "Darbhanga",
+      "DBG"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_DBR",
+    "name": "Darbhanga Airport",
+    "code": "DBR",
+    "type": "airport",
+    "city": "Darbhanga",
+    "state": "Bihar",
+    "lat": 26.195,
+    "lon": 85.9142,
+    "aliases": [
+      "Darbhanga Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_GAYA",
+    "name": "Gaya Junction",
+    "code": "GAYA",
+    "type": "rail_station",
+    "city": "Gaya",
+    "state": "Bihar",
+    "lat": 24.805,
+    "lon": 84.9994,
+    "aliases": [
+      "Gaya",
+      "Bodh Gaya"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BJU",
+    "name": "Barauni Junction",
+    "code": "BJU",
+    "type": "rail_station",
+    "city": "Barauni",
+    "state": "Bihar",
+    "lat": 25.4742,
+    "lon": 85.9733,
+    "aliases": [
+      "Barauni",
+      "BJU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_KIR",
+    "name": "Katihar Junction",
+    "code": "KIR",
+    "type": "rail_station",
+    "city": "Katihar",
+    "state": "Bihar",
+    "lat": 25.5398,
+    "lon": 87.57,
+    "aliases": [
+      "Katihar",
+      "KIR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BSL",
+    "name": "Bhusaval Junction",
+    "code": "BSL",
+    "type": "rail_station",
+    "city": "Bhusawal",
+    "state": "Maharashtra",
+    "lat": 21.0455,
+    "lon": 75.7885,
+    "aliases": [
+      "Bhusaval",
+      "BSL"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MMR",
+    "name": "Manmad Junction",
+    "code": "MMR",
+    "type": "rail_station",
+    "city": "Manmad",
+    "state": "Maharashtra",
+    "lat": 20.2528,
+    "lon": 74.4372,
+    "aliases": [
+      "Manmad",
+      "MMR"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_NK",
+    "name": "Nashik Road",
+    "code": "NK",
+    "type": "rail_station",
+    "city": "Nashik",
+    "state": "Maharashtra",
+    "lat": 19.9577,
+    "lon": 73.8322,
+    "aliases": [
+      "Nashik",
+      "Nasik Road",
+      "NK"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_ISK",
+    "name": "Nashik Ozar Airport",
+    "code": "ISK",
+    "type": "airport",
+    "city": "Nashik",
+    "state": "Maharashtra",
+    "lat": 20.1192,
+    "lon": 73.9136,
+    "aliases": [
+      "Ozar Airport",
+      "Nashik Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_SUR",
+    "name": "Solapur",
+    "code": "SUR",
+    "type": "rail_station",
+    "city": "Solapur",
+    "state": "Maharashtra",
+    "lat": 17.6599,
+    "lon": 75.9064,
+    "aliases": [
+      "Solapur",
+      "Sholapur",
+      "SUR"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_KOP",
+    "name": "Kolhapur CSMT",
+    "code": "KOP",
+    "type": "rail_station",
+    "city": "Kolhapur",
+    "state": "Maharashtra",
+    "lat": 16.705,
+    "lon": 74.2433,
+    "aliases": [
+      "Kolhapur",
+      "KOP"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_KYN",
+    "name": "Kalyan Junction",
+    "code": "KYN",
+    "type": "rail_station",
+    "city": "Kalyan",
+    "state": "Maharashtra",
+    "lat": 19.2361,
+    "lon": 73.1306,
+    "aliases": [
+      "Kalyan",
+      "KYN"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_TNA",
+    "name": "Thane",
+    "code": "TNA",
+    "type": "rail_station",
+    "city": "Thane",
+    "state": "Maharashtra",
+    "lat": 19.186,
+    "lon": 72.9756,
+    "aliases": [
+      "Thane",
+      "TNA"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_RTM",
+    "name": "Ratlam Junction",
+    "code": "RTM",
+    "type": "rail_station",
+    "city": "Ratlam",
+    "state": "Madhya Pradesh",
+    "lat": 23.3364,
+    "lon": 75.0406,
+    "aliases": [
+      "Ratlam",
+      "RTM"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_RJT",
+    "name": "Rajkot Junction",
+    "code": "RJT",
+    "type": "rail_station",
+    "city": "Rajkot",
+    "state": "Gujarat",
+    "lat": 22.3129,
+    "lon": 70.7989,
+    "aliases": [
+      "Rajkot",
+      "RJT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_HSR",
+    "name": "Rajkot Hirasar International Airport",
+    "code": "HSR",
+    "type": "airport",
+    "city": "Rajkot",
+    "state": "Gujarat",
+    "lat": 22.3614,
+    "lon": 71.0117,
+    "aliases": [
+      "Rajkot Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_UMB",
+    "name": "Ambala Cantt Junction",
+    "code": "UMB",
+    "type": "rail_station",
+    "city": "Ambala",
+    "state": "Haryana",
+    "lat": 30.3304,
+    "lon": 76.8378,
+    "aliases": [
+      "Ambala Cantt",
+      "UMB"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_LDH",
+    "name": "Ludhiana Junction",
+    "code": "LDH",
+    "type": "rail_station",
+    "city": "Ludhiana",
+    "state": "Punjab",
+    "lat": 30.901,
+    "lon": 75.8573,
+    "aliases": [
+      "Ludhiana",
+      "LDH"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_BTI",
+    "name": "Bathinda Junction",
+    "code": "BTI",
+    "type": "rail_station",
+    "city": "Bathinda",
+    "state": "Punjab",
+    "lat": 30.2109,
+    "lon": 74.9455,
+    "aliases": [
+      "Bathinda",
+      "Bhatinda",
+      "BTI"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_BKN",
+    "name": "Bikaner Junction",
+    "code": "BKN",
+    "type": "rail_station",
+    "city": "Bikaner",
+    "state": "Rajasthan",
+    "lat": 28.0181,
+    "lon": 73.3169,
+    "aliases": [
+      "Bikaner",
+      "BKN"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_AII",
+    "name": "Ajmer Junction",
+    "code": "AII",
+    "type": "rail_station",
+    "city": "Ajmer",
+    "state": "Rajasthan",
+    "lat": 26.4525,
+    "lon": 74.6399,
+    "aliases": [
+      "Ajmer",
+      "Pushkar Gateway",
+      "AII"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_KTE",
+    "name": "Katni Junction",
+    "code": "KTE",
+    "type": "rail_station",
+    "city": "Katni",
+    "state": "Madhya Pradesh",
+    "lat": 23.8322,
+    "lon": 80.3953,
+    "aliases": [
+      "Katni",
+      "KTE"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_UJN",
+    "name": "Ujjain Junction",
+    "code": "UJN",
+    "type": "rail_station",
+    "city": "Ujjain",
+    "state": "Madhya Pradesh",
+    "lat": 23.1815,
+    "lon": 75.7772,
+    "aliases": [
+      "Ujjain",
+      "Mahakal Station",
+      "UJN"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_GTL",
+    "name": "Guntakal Junction",
+    "code": "GTL",
+    "type": "rail_station",
+    "city": "Guntakal",
+    "state": "Andhra Pradesh",
+    "lat": 15.1667,
+    "lon": 77.3667,
+    "aliases": [
+      "Guntakal",
+      "GTL"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_RU",
+    "name": "Renigunta Junction",
+    "code": "RU",
+    "type": "rail_station",
+    "city": "Tirupati",
+    "state": "Andhra Pradesh",
+    "lat": 13.6517,
+    "lon": 79.5167,
+    "aliases": [
+      "Renigunta",
+      "Tirupati Gateway",
+      "RU"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_TPTY",
+    "name": "Tirupati",
+    "code": "TPTY",
+    "type": "rail_station",
+    "city": "Tirupati",
+    "state": "Andhra Pradesh",
+    "lat": 13.6288,
+    "lon": 79.4192,
+    "aliases": [
+      "Tirupati Main",
+      "TPTY"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_TIR",
+    "name": "Tirupati Airport",
+    "code": "TIR",
+    "type": "airport",
+    "city": "Tirupati",
+    "state": "Andhra Pradesh",
+    "lat": 13.6325,
+    "lon": 79.5433,
+    "aliases": [
+      "Tirupati Airport",
+      "TIR"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_WL",
+    "name": "Warangal",
+    "code": "WL",
+    "type": "rail_station",
+    "city": "Warangal",
+    "state": "Telangana",
+    "lat": 17.9689,
+    "lon": 79.5941,
+    "aliases": [
+      "Warangal",
+      "WL"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_KZJ",
+    "name": "Kazipet Junction",
+    "code": "KZJ",
+    "type": "rail_station",
+    "city": "Kazipet",
+    "state": "Telangana",
+    "lat": 17.9818,
+    "lon": 79.5262,
+    "aliases": [
+      "Kazipet",
+      "KZJ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_MYS",
+    "name": "Mysuru Junction",
+    "code": "MYS",
+    "type": "rail_station",
+    "city": "Mysuru",
+    "state": "Karnataka",
+    "lat": 12.316,
+    "lon": 76.6457,
+    "aliases": [
+      "Mysore",
+      "MYS"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_UBL",
+    "name": "SSS Hubballi Junction",
+    "code": "UBL",
+    "type": "rail_station",
+    "city": "Hubballi",
+    "state": "Karnataka",
+    "lat": 15.3468,
+    "lon": 75.1481,
+    "aliases": [
+      "Hubli",
+      "Hubballi",
+      "UBL"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_HBX",
+    "name": "Hubballi Airport",
+    "code": "HBX",
+    "type": "airport",
+    "city": "Hubballi",
+    "state": "Karnataka",
+    "lat": 15.3617,
+    "lon": 75.0849,
+    "aliases": [
+      "Hubli Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_MAQ",
+    "name": "Mangaluru Central",
+    "code": "MAQ",
+    "type": "rail_station",
+    "city": "Mangaluru",
+    "state": "Karnataka",
+    "lat": 12.8642,
+    "lon": 74.8427,
+    "aliases": [
+      "Mangalore Central",
+      "MAQ"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_IXE",
+    "name": "Mangaluru International Airport",
+    "code": "IXE",
+    "type": "airport",
+    "city": "Mangaluru",
+    "state": "Karnataka",
+    "lat": 12.9613,
+    "lon": 74.89,
+    "aliases": [
+      "Bajpe Airport",
+      "Mangalore Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_CLT",
+    "name": "Kozhikode Main",
+    "code": "CLT",
+    "type": "rail_station",
+    "city": "Kozhikode",
+    "state": "Kerala",
+    "lat": 11.2482,
+    "lon": 75.7839,
+    "aliases": [
+      "Calicut",
+      "Kozhikode",
+      "CLT"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_CCJ",
+    "name": "Calicut International Airport",
+    "code": "CCJ",
+    "type": "airport",
+    "city": "Kozhikode",
+    "state": "Kerala",
+    "lat": 11.1368,
+    "lon": 75.9553,
+    "aliases": [
+      "Karippur Airport",
+      "Calicut Airport"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_TCR",
+    "name": "Thrissur",
+    "code": "TCR",
+    "type": "rail_station",
+    "city": "Thrissur",
+    "state": "Kerala",
+    "lat": 10.5186,
+    "lon": 76.2133,
+    "aliases": [
+      "Trichur",
+      "Thrissur",
+      "TCR"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_CAN",
+    "name": "Kannur",
+    "code": "CAN",
+    "type": "rail_station",
+    "city": "Kannur",
+    "state": "Kerala",
+    "lat": 11.8745,
+    "lon": 75.3704,
+    "aliases": [
+      "Cannanore",
+      "CAN"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_CNN",
+    "name": "Kannur International Airport",
+    "code": "CNN",
+    "type": "airport",
+    "city": "Kannur",
+    "state": "Kerala",
+    "lat": 11.9178,
+    "lon": 75.5481,
+    "aliases": [
+      "Kannur Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_TPJ",
+    "name": "Tiruchirappalli Junction",
+    "code": "TPJ",
+    "type": "rail_station",
+    "city": "Tiruchirappalli",
+    "state": "Tamil Nadu",
+    "lat": 10.7925,
+    "lon": 78.6856,
+    "aliases": [
+      "Trichy",
+      "TPJ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "AIR_TRZ",
+    "name": "Tiruchirappalli International Airport",
+    "code": "TRZ",
+    "type": "airport",
+    "city": "Tiruchirappalli",
+    "state": "Tamil Nadu",
+    "lat": 10.7654,
+    "lon": 78.7097,
+    "aliases": [
+      "Trichy Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_SA",
+    "name": "Salem Junction",
+    "code": "SA",
+    "type": "rail_station",
+    "city": "Salem",
+    "state": "Tamil Nadu",
+    "lat": 11.6643,
+    "lon": 78.1189,
+    "aliases": [
+      "Salem",
+      "SA"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_JTJ",
+    "name": "Jolarpettai Junction",
+    "code": "JTJ",
+    "type": "rail_station",
+    "city": "Jolarpettai",
+    "state": "Tamil Nadu",
+    "lat": 12.5562,
+    "lon": 78.5772,
+    "aliases": [
+      "Jolarpettai",
+      "JTJ"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_KGP",
+    "name": "Kharagpur Junction",
+    "code": "KGP",
+    "type": "rail_station",
+    "city": "Kharagpur",
+    "state": "West Bengal",
+    "lat": 22.3308,
+    "lon": 87.3237,
+    "aliases": [
+      "Kharagpur",
+      "KGP"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_ASN",
+    "name": "Asansol Junction",
+    "code": "ASN",
+    "type": "rail_station",
+    "city": "Asansol",
+    "state": "West Bengal",
+    "lat": 23.6889,
+    "lon": 86.9744,
+    "aliases": [
+      "Asansol",
+      "ASN"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_DHN",
+    "name": "Dhanbad Junction",
+    "code": "DHN",
+    "type": "rail_station",
+    "city": "Dhanbad",
+    "state": "Jharkhand",
+    "lat": 23.7915,
+    "lon": 86.43,
+    "aliases": [
+      "Dhanbad Coalfield",
+      "DHN"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_TATA",
+    "name": "Tatanagar Junction",
+    "code": "TATA",
+    "type": "rail_station",
+    "city": "Jamshedpur",
+    "state": "Jharkhand",
+    "lat": 22.7709,
+    "lon": 86.2028,
+    "aliases": [
+      "Tatanagar",
+      "Jamshedpur",
+      "TATA"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_CTC",
+    "name": "Cuttack Junction",
+    "code": "CTC",
+    "type": "rail_station",
+    "city": "Cuttack",
+    "state": "Odisha",
+    "lat": 20.4636,
+    "lon": 85.8942,
+    "aliases": [
+      "Cuttack",
+      "CTC"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_PURI",
+    "name": "Puri",
+    "code": "PURI",
+    "type": "rail_station",
+    "city": "Puri",
+    "state": "Odisha",
+    "lat": 19.8135,
+    "lon": 85.8315,
+    "aliases": [
+      "Jagannath Puri",
+      "PURI"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_ROU",
+    "name": "Rourkela Junction",
+    "code": "ROU",
+    "type": "rail_station",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "lat": 22.2268,
+    "lon": 84.8682,
+    "aliases": [
+      "Rourkela",
+      "ROU"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_RRK",
+    "name": "Rourkela Airport",
+    "code": "RRK",
+    "type": "airport",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "lat": 22.2575,
+    "lon": 84.8156,
+    "aliases": [
+      "Rourkela Airport"
+    ],
+    "tier": 3
+  },
+  {
+    "id": "STN_LMG",
+    "name": "Lumding Junction",
+    "code": "LMG",
+    "type": "rail_station",
+    "city": "Lumding",
+    "state": "Assam",
+    "lat": 25.75,
+    "lon": 93.1667,
+    "aliases": [
+      "Lumding",
+      "LMG"
+    ],
+    "tier": 1
+  },
+  {
+    "id": "STN_DBRG",
+    "name": "Dibrugarh",
+    "code": "DBRG",
+    "type": "rail_station",
+    "city": "Dibrugarh",
+    "state": "Assam",
+    "lat": 27.4728,
+    "lon": 94.912,
+    "aliases": [
+      "Dibrugarh Banipur",
+      "DBRG"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_DIB",
+    "name": "Dibrugarh Mohanbari Airport",
+    "code": "DIB",
+    "type": "airport",
+    "city": "Dibrugarh",
+    "state": "Assam",
+    "lat": 27.4839,
+    "lon": 95.0178,
+    "aliases": [
+      "Mohanbari Airport",
+      "Dibrugarh Airport"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "STN_AGTL",
+    "name": "Agartala",
+    "code": "AGTL",
+    "type": "rail_station",
+    "city": "Agartala",
+    "state": "Tripura",
+    "lat": 23.7915,
+    "lon": 91.2725,
+    "aliases": [
+      "Agartala",
+      "AGTL"
+    ],
+    "tier": 2
+  },
+  {
+    "id": "AIR_IXA",
+    "name": "Maharaja Bir Bikram Airport",
+    "code": "IXA",
+    "type": "airport",
+    "city": "Agartala",
+    "state": "Tripura",
+    "lat": 23.8869,
+    "lon": 91.2404,
+    "aliases": [
+      "Agartala Airport"
+    ],
+    "tier": 2
+  }
+]
