@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/><style>
+  :root {
+    --bg-page: #f8f9fc;
+    --bg-surface: #ffffff;
+    --bg-input: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+    --border-subtle: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --border-focus: #3b5266;
+    --btn-primary-bg: #243b4e;
+    --btn-primary-hover: #1e3142;
+    --btn-primary-text: #ffffff;
+    --avatar-bg: #243b4e;
+    --avatar-text: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-page: #0b0f17;
+      --bg-surface: #131b2e;
+      --bg-input: #0f1728;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      --border-subtle: #1e293b;
+      --border-hover: #334155;
+      --border-focus: #60a5fa;
+      --btn-primary-bg: #3b5266;
+      --btn-primary-hover: #4a667f;
+      --btn-primary-text: #f8faff;
+      --avatar-bg: #1e293b;
+      --avatar-text: #93c5fd;
+    }
+  }
+
+  @layer base {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+    main > :first-child {
+      margin-top: 0 !important;
+    }
+    main > :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "media",
+    theme: {
+      extend: {
+        colors: {
+          "theme-bg": "var(--bg-page)",
+          "theme-surface": "var(--bg-surface)",
+          "theme-input": "var(--bg-input)",
+          "theme-text": "var(--text-primary)",
+          "theme-text-secondary": "var(--text-secondary)",
+          "theme-text-tertiary": "var(--text-tertiary)",
+          "theme-border": "var(--border-subtle)",
+          "theme-border-hover": "var(--border-hover)",
+          "theme-border-focus": "var(--border-focus)",
+          "theme-btn": "var(--btn-primary-bg)",
+          "theme-btn-hover": "var(--btn-primary-hover)",
+          "theme-btn-text": "var(--btn-primary-text)",
+          "theme-avatar": "var(--avatar-bg)",
+          "theme-avatar-text": "var(--avatar-text)"
+        },
+        fontFamily: {
+          sans: ["Inter", "sans-serif"],
+          "body-md": ["Inter", "sans-serif"],
+          "headline-lg": ["Inter", "sans-serif"],
+          "label-md": ["Inter", "sans-serif"],
+          "label-lg": ["Inter", "sans-serif"],
+          "label-sm": ["Inter", "sans-serif"]
+        },
+        spacing: {
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3rem"
+        }
+      }
+    }
+  }
+</script></head><body class="bg-theme-bg font-sans text-theme-text antialiased selection:bg-slate-700 selection:text-white"><header class="fixed top-0 left-0 right-0 z-40 bg-theme-bg/85 backdrop-blur-md border-b border-theme-border/60 transition-colors"><div class="h-16 max-w-[960px] mx-auto px-gutter-mobile md:px-margin flex items-center justify-between"><a class="text-[13px] tracking-[0.2em] uppercase font-semibold text-theme-text select-none" data-path="focus-workspace" href="#">SANKALP</a><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-space-md" data-active-classes="text-theme-text font-medium"><a aria-current="page" class="transition-colors text-theme-text font-medium text-[13px]" data-path="focus-workspace" href="#">Focus</a><a class="text-[13px] text-theme-text-secondary hover:text-theme-text transition-colors font-normal" data-path="archive" href="#">Archive</a><a class="text-[13px] text-theme-text-secondary hover:text-theme-text transition-colors font-normal" data-path="preferences" href="#">Preferences</a></nav><div class="w-8 h-8 rounded-full bg-theme-avatar text-theme-avatar-text flex items-center justify-center shrink-0 border border-theme-border transition-colors"><span class="material-symbols-outlined text-[17px]">person</span></div></div></div></header><main class="w-full min-h-screen pt-16 bg-theme-bg flex flex-col items-center transition-colors"><div class="w-full max-w-[960px] mx-auto px-gutter-mobile md:px-margin flex-1 flex flex-col justify-center"><div class="flex flex-col w-full py-12">
+<div class="w-full flex flex-col items-center justify-center px-gutter-mobile md:px-0">
+<div class="w-full max-w-[600px] flex flex-col items-center">
+<div class="text-center mb-space-xl">
+<h1 class="text-[28px] md:text-[32px] text-theme-text font-semibold tracking-tight leading-tight">
+          Find your alternative route.
+        </h1>
+<p class="text-[15px] text-theme-text-secondary mt-space-xs font-normal">
+          Instant multi-modal alternatives when schedules fail.
+        </p>
+</div>
+<form class="w-full bg-theme-surface border border-theme-border rounded-2xl p-space-lg md:p-8 flex flex-col gap-space-md shadow-sm transition-colors" id="route-form" onsubmit="event.preventDefault(); handleSearch();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="text-[13px] font-medium text-theme-text-secondary" for="from-input">
+              From
+            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-theme-input border border-theme-border rounded-lg px-3.5 py-2.5 text-[14px] text-theme-text placeholder:text-theme-text-tertiary focus:outline-none focus:border-theme-border-focus focus:ring-1 focus:ring-theme-border-focus transition-all" id="from-input" placeholder="Departure station or city" required="" type="text"/>
+<button class="hidden md:flex absolute -right-3.5 z-10 w-7 h-7 bg-theme-surface border border-theme-border rounded-full items-center justify-center text-theme-text-secondary hover:text-theme-text hover:border-theme-border-hover transition-colors shadow-sm" id="swap-btn" onclick="swapInputs()" title="Swap stations" type="button">
+<span class="material-symbols-outlined text-[15px]">swap_horiz</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="text-[13px] font-medium text-theme-text-secondary" for="to-input">
+              To
+            </label>
+<input class="w-full bg-theme-input border border-theme-border rounded-lg px-3.5 py-2.5 text-[14px] text-theme-text placeholder:text-theme-text-tertiary focus:outline-none focus:border-theme-border-focus focus:ring-1 focus:ring-theme-border-focus transition-all" id="to-input" placeholder="Destination station or city" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="text-[13px] font-medium text-theme-text-secondary" for="arrive-input">
+              Must arrive by
+            </label>
+<input class="w-full bg-theme-input border border-theme-border rounded-lg px-3.5 py-2.5 text-[14px] text-theme-text placeholder:text-theme-text-tertiary focus:outline-none focus:border-theme-border-focus focus:ring-1 focus:ring-theme-border-focus transition-all" id="arrive-input" placeholder="e.g. Today, 6:00 PM" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="text-[13px] font-medium text-theme-text-secondary" for="budget-input">
+              Budget
+            </label>
+<input class="w-full bg-theme-input border border-theme-border rounded-lg px-3.5 py-2.5 text-[14px] text-theme-text placeholder:text-theme-text-tertiary focus:outline-none focus:border-theme-border-focus focus:ring-1 focus:ring-theme-border-focus transition-all" id="budget-input" placeholder="e.g. ₹2,500 or Max budget" type="text"/>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="w-full bg-theme-btn hover:bg-theme-btn-hover active:scale-[0.99] text-theme-btn-text font-medium text-[14px] py-2.5 rounded-lg transition-all flex items-center justify-center gap-space-xs select-none shadow-sm cursor-pointer" id="submit-btn" type="submit">
+<span>Find alternatives</span>
+</button>
+</div>
+</form>
+<div class="flex items-center gap-space-md mt-space-md text-theme-text-secondary text-[12px] font-medium flex-wrap justify-center">
+<span>Recent:</span>
+<button class="hover:text-theme-text transition-colors underline underline-offset-4 decoration-theme-border hover:decoration-theme-text" onclick="fillQuick('New Delhi', 'Jaipur Junction', 'Today, 8:00 PM', '₹1,500')" type="button">NDLS → JP</button>
+<span class="text-theme-text-tertiary">·</span>
+<button class="hover:text-theme-text transition-colors underline underline-offset-4 decoration-theme-border hover:decoration-theme-text" onclick="fillQuick('Howrah', 'Bhubaneswar', 'Tomorrow, 9:00 AM', '₹2,000')" type="button">HWH → BBS</button>
+<span class="text-theme-text-tertiary">·</span>
+<button class="hover:text-theme-text transition-colors underline underline-offset-4 decoration-theme-border hover:decoration-theme-text" onclick="fillQuick('Pune Junction', 'Mumbai CSMT', 'Today, 5:30 PM', '₹800')" type="button">PUNE → CSMT</button>
+</div>
+</div>
+</div>
+<script>
+    function swapInputs() {
+      const from = document.getElementById('from-input');
+      const to = document.getElementById('to-input');
+      const temp = from.value;
+      from.value = to.value;
+      to.value = temp;
+    }
+
+    function fillQuick(from, to, arrive, budget) {
+      document.getElementById('from-input').value = from;
+      document.getElementById('to-input').value = to;
+      document.getElementById('arrive-input').value = arrive;
+      document.getElementById('budget-input').value = budget;
+    }
+
+    function handleSearch() {
+      const btn = document.getElementById('submit-btn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>Searching routes...</span>';
+      btn.disabled = true;
+      btn.classList.add('opacity-75');
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        btn.classList.remove('opacity-75');
+      }, 700);
+    }
+  </script>
+</div></div></main><footer class="w-full bg-theme-bg py-space-xl border-t border-theme-border/40 transition-colors"><div class="max-w-[960px] mx-auto px-gutter-mobile md:px-margin flex items-center justify-between text-theme-text-tertiary text-[11px] font-medium tracking-wide"><span class="tracking-[0.1em] uppercase text-theme-text-secondary">Sankalp · Quiet Workspace</span><span>Frictionless</span></div></footer></body></html>

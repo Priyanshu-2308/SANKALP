@@ -1,0 +1,237 @@
+{
+  "name": "projects/5680212938138663204",
+  "title": "SANKALP Transit Rebooking Minimalist",
+  "visibility": "PRIVATE",
+  "createTime": "2026-10-03T08:14:48.728390Z",
+  "updateTime": "2026-10-03T08:20:16.926032Z",
+  "projectType": "TEXT_TO_UI_PRO",
+  "thumbnailScreenshot": {
+    "name": "projects/5680212938138663204/screens/d67ce988d9984113a570d9cd6290116f/fileEntries/screenshot",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1WhjhK-_UAijJridTyJpgSs2r0jb8olN7jASHjn5aMjcIK_uHtPzR3aSbE5tJY3zCJhT5iglYgiagacvMOJo_s7_K0EO3mZLomBh0hadRCXLDYZxZRBfamnGPs5nVwG8Vv18inofrH5g2hpQhIQGELXzPWisfrzI_NVlzeML2OJcURrB_orZsigRAk3bnz7BbADfEzre2FnviSZTl3WtRdogtCvy6U68GPdLKzoonu7hs_KDmE6DUojXFI"
+  },
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "INTER",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#0f766e",
+    "headlineFont": "INTER",
+    "bodyFont": "INTER",
+    "labelFont": "INTER",
+    "namedColors": {
+      "on_tertiary_fixed": "#370e00",
+      "tertiary_container": "#9c573a",
+      "on_tertiary": "#ffffff",
+      "primary_fixed_dim": "#80d5cb",
+      "on_error": "#ffffff",
+      "tertiary": "#7f4025",
+      "surface_container_low": "#f2f4f8",
+      "surface_bright": "#f7f9fd",
+      "on_secondary_container": "#5c6274",
+      "on_primary_fixed": "#00201d",
+      "on_error_container": "#93000a",
+      "outline_variant": "#bdc9c6",
+      "secondary_fixed": "#dce2f7",
+      "on_primary_fixed_variant": "#00504a",
+      "outline": "#6e7977",
+      "on_secondary_fixed_variant": "#404758",
+      "surface": "#f7f9fd",
+      "primary_container": "#0f766e",
+      "primary": "#005c55",
+      "secondary_container": "#d9dff5",
+      "background": "#f7f9fd",
+      "on_surface": "#191c1f",
+      "tertiary_fixed": "#ffdbce",
+      "on_tertiary_fixed_variant": "#72361b",
+      "surface_dim": "#d8dade",
+      "on_primary": "#ffffff",
+      "on_surface_variant": "#3e4947",
+      "on_secondary_fixed": "#141b2b",
+      "on_background": "#191c1f",
+      "on_secondary": "#ffffff",
+      "surface_container_highest": "#e0e2e6",
+      "tertiary_fixed_dim": "#ffb598",
+      "surface_container": "#eceef2",
+      "error": "#ba1a1a",
+      "inverse_on_surface": "#eff1f5",
+      "inverse_surface": "#2d3134",
+      "on_primary_container": "#a3faef",
+      "error_container": "#ffdad6",
+      "surface_tint": "#006a63",
+      "secondary": "#575e70",
+      "surface_container_high": "#e6e8ec",
+      "surface_container_lowest": "#ffffff",
+      "surface_variant": "#e0e2e6",
+      "primary_fixed": "#9cf2e8",
+      "on_tertiary_container": "#ffe5db",
+      "inverse_primary": "#80d5cb",
+      "secondary_fixed_dim": "#c0c6db"
+    },
+    "designMd": "---\nname: SANKALP\ncolors:\n  surface: '#f7f9fd'\n  surface-dim: '#d8dade'\n  surface-bright: '#f7f9fd'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f2f4f8'\n  surface-container: '#eceef2'\n  surface-container-high: '#e6e8ec'\n  surface-container-highest: '#e0e2e6'\n  on-surface: '#191c1f'\n  on-surface-variant: '#3e4947'\n  inverse-surface: '#2d3134'\n  inverse-on-surface: '#eff1f5'\n  outline: '#6e7977'\n  outline-variant: '#bdc9c6'\n  surface-tint: '#006a63'\n  primary: '#005c55'\n  on-primary: '#ffffff'\n  primary-container: '#0f766e'\n  on-primary-container: '#a3faef'\n  inverse-primary: '#80d5cb'\n  secondary: '#575e70'\n  on-secondary: '#ffffff'\n  secondary-container: '#d9dff5'\n  on-secondary-container: '#5c6274'\n  tertiary: '#7f4025'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#9c573a'\n  on-tertiary-container: '#ffe5db'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#9cf2e8'\n  primary-fixed-dim: '#80d5cb'\n  on-primary-fixed: '#00201d'\n  on-primary-fixed-variant: '#00504a'\n  secondary-fixed: '#dce2f7'\n  secondary-fixed-dim: '#c0c6db'\n  on-secondary-fixed: '#141b2b'\n  on-secondary-fixed-variant: '#404758'\n  tertiary-fixed: '#ffdbce'\n  tertiary-fixed-dim: '#ffb598'\n  on-tertiary-fixed: '#370e00'\n  on-tertiary-fixed-variant: '#72361b'\n  background: '#f7f9fd'\n  on-background: '#191c1f'\n  surface-variant: '#e0e2e6'\ntypography:\n  display-lg:\n    fontFamily: Inter\n    fontSize: 40px\n    fontWeight: '600'\n    lineHeight: 48px\n    letterSpacing: -0.02em\n  display-lg-mobile:\n    fontFamily: Inter\n    fontSize: 30px\n    fontWeight: '600'\n    lineHeight: 38px\n    letterSpacing: -0.015em\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 28px\n    fontWeight: '600'\n    lineHeight: 36px\n    letterSpacing: -0.015em\n  headline-md:\n    fontFamily: Inter\n    fontSize: 22px\n    fontWeight: '500'\n    lineHeight: 30px\n    letterSpacing: -0.01em\n  headline-sm:\n    fontFamily: Inter\n    fontSize: 18px\n    fontWeight: '500'\n    lineHeight: 26px\n    letterSpacing: -0.005em\n  body-lg:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 26px\n  body-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 22px\n  body-sm:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\n  label-lg:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '500'\n    lineHeight: 20px\n  label-md:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '500'\n    lineHeight: 18px\n  label-sm:\n    fontFamily: Inter\n    fontSize: 11px\n    fontWeight: '500'\n    lineHeight: 14px\n    letterSpacing: 0.02em\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-mobile: 1rem\n  margin: 3rem\n  margin-mobile: 1.25rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2.5rem\n---\n\n## Brand & Style\n\nThe design system embodies quiet confidence, functional restraint, and absolute clarity. Drawing inspiration from Google Search and the deliberate emptiness of pristine Notion workspaces, the aesthetic eliminates visual noise to elevate user focus and content intentionality.\n\n- **Design Philosophy:** Essentialist Minimalism. Every line, space, and element must justify its presence.\n- **Tone & Atmosphere:** Calm, clinical, poised, and frictionless.\n- **Visual Tenets:**\n  - Zero decorative layers, badges, gradients, or ambient drop shadows.\n  - Strict reliance on precise micro-borders and deliberate negative space.\n  - Singular, disciplined placement of color exclusively reserved for direct commitment actions.\n\n## Colors\n\nThe palette is stark, deliberate, and high in utilitarian contrast. Pure `#FFFFFF` serves as the canvas. \n\n- **Primary (`#0F766E` / Deep Teal):** Strictly allocated to primary actionable triggers (confirm, commit, create). Never used for decorative accents, borders, or informational badges.\n- **Neutral Dark (`#111827` / Primary Ink, `#4B5563` / Secondary Ink):** High-legibility text contrast without harsh artificial pitch-black rendering.\n- **Neutral Light (`#FFFFFF` / Base Canvas, `#F9FAFB` / Interactive Hover Surface):** Clean structural backgrounds.\n- **Borders & Dividers (`#E5E7EB`):** Crisp 1px structural boundaries defining the layout geometry without visual heaviness.\n\n## Typography\n\nTypography is set exclusively in **Inter**. The typographic hierarchy relies on modest font scales, wide line heights, and restrained weights to maintain a calm, publication-grade reading rhythm.\n\n- **Weight Discipline:** Restricted to Regular (`400`), Medium (`500`), and subtle Semi-Bold (`600`) for headers. Never use Bold (`700`) or Extra Bold (`800`).\n- **Vertical Rhythm:** Generous line heights preserve open white space between lines, avoiding dense text blocks.\n- **Letter Spacing:** Slight negative tracking (`-0.01em` to `-0.02em`) on display and headline levels for compact architectural titling; neutral tracking on body copy.\n\n## Layout & Spacing\n\nThe layout philosophy centers on expansive negative space, quiet isolation, and symmetrical, centered compositions.\n\n- **Grid & Alignment:** Centralized fixed containers (maximum widths of `640px` for reading/forms, `960px` for workflows, `1200px` for tabular data) centered within the fluid canvas.\n- **Rhythm:** An 8pt base grid drives all structural margins. Layouts embrace empty space as a structural material rather than a gap to fill.\n- **Responsive Adaptations:**\n  - **Desktop (1024px+):** Generous canvas margins (`3rem`), expansive vertical sectional padding (`4rem` to `6rem`).\n  - **Tablet (768px - 1023px):** Moderate margins (`2rem`), 12-column reflow.\n  - **Mobile (<768px):** Single-column stacks, `1.25rem` horizontal padding, tight gutter compression (`1rem`).\n\n## Elevation & Depth\n\nThis system avoids layered shadows, blurs, and skeuomorphic lighting models entirely.\n\n- **Zero Drop Shadows:** Elevation levels (`z-index` and visual dominance) are communicated without shadow filters (`box-shadow: none`).\n- **Low-Contrast Outlines:** Visual separation relies on 1px solid hairline borders in `#E5E7EB`.\n- **Tonal Shifts:** Modals, flyouts, and dropdowns use the `#FFFFFF` canvas bordered by `#E5E7EB` placed above a transparent overlay backdrop (`rgba(17, 24, 39, 0.2)`).\n- **Interactive Planes:** Interactive components announce availability through flat background shifts (`#F9FAFB`) instead of physical elevation.\n\n## Shapes\n\nShapes are modest, balanced, and soft without trending into circular novelty. \n\n- **Token Value `2`:** Base components (inputs, secondary buttons) feature `0.5rem` (`8px`) border radii.\n- **Large Surfaces (`rounded-lg` / `rounded-xl`):** Cards, dialogs, and workspace panels scale to `1rem` (`16px`) and `1.5rem` (`24px`) to present calm, welcoming borders.\n- **Pills Disallowed:** Strictly avoid fully rounded pill shapes (`rounded-full`) for buttons and inputs to preserve architectural discipline.\n\n## Components\n\n### Buttons\n- **Primary:** Background `#0F766E`, text `#FFFFFF`, border none, font weight `500`. Hover state `#0D9488`. Active state `#115E59`.\n- **Secondary / Ghost:** Background `#FFFFFF`, text `#111827`, border `1px solid #E5E7EB`. Hover state background `#F9FAFB`, border `#D1D5DB`.\n\n### Input Fields\n- Single-line and multiline containers rendered with `#FFFFFF` background, `1px solid #E5E7EB` borders, and padding `0.625rem 0.875rem`.\n- Focus state transition: border color `#111827` without fuzzy colored outline rings (`outline: none; box-shadow: none`).\n- Placeholder text in `#9CA3AF`.\n\n### Cards & Panels\n- Background `#FFFFFF`, border `1px solid #E5E7EB`, radius `rounded-lg` (`1rem`).\n- Internal padding generous at `1.5rem` to `2rem`. Devoid of drop shadows.\n\n### Lists & Tables\n- Borderless table rows separated only by hairline dividers (`1px solid #E5E7EB`).\n- Hover state across interactive rows applies flat background `#F9FAFB`.\n\n### Selection Controls (Checkboxes & Radios)\n- Unchecked: `1px solid #D1D5DB`, background `#FFFFFF`.\n- Checked: Background `#0F766E`, border `#0F766E`, indicator white. Size restricted to `1rem \u00d7 1rem` with `rounded` (`4px`) for checkboxes.\n\n### Empty States\n- Vertically and horizontally centered inside the workspace container.\n- Sparse hierarchy: Muted outline icon, `headline-sm` title in `#111827`, single line description in `#4B5563`, followed by one primary button.",
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#0f766e",
+    "overrideSecondaryColor": "#111827",
+    "overrideNeutralColor": "#e5e7eb",
+    "spacingScale": 2,
+    "typography": {
+      "label-md": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "lineHeight": "18px"
+      },
+      "body-md": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px"
+      },
+      "headline-sm": {
+        "fontFamily": "Inter",
+        "fontSize": "18px",
+        "fontWeight": "500",
+        "lineHeight": "26px",
+        "letterSpacing": "-0.005em"
+      },
+      "body-sm": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "18px"
+      },
+      "display-lg-mobile": {
+        "fontFamily": "Inter",
+        "fontSize": "30px",
+        "fontWeight": "600",
+        "lineHeight": "38px",
+        "letterSpacing": "-0.015em"
+      },
+      "headline-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "28px",
+        "fontWeight": "600",
+        "lineHeight": "36px",
+        "letterSpacing": "-0.015em"
+      },
+      "body-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "26px"
+      },
+      "headline-md": {
+        "fontFamily": "Inter",
+        "fontSize": "22px",
+        "fontWeight": "500",
+        "lineHeight": "30px",
+        "letterSpacing": "-0.01em"
+      },
+      "display-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "40px",
+        "fontWeight": "600",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.02em"
+      },
+      "label-sm": {
+        "fontFamily": "Inter",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "14px",
+        "letterSpacing": "0.02em"
+      },
+      "label-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "20px"
+      }
+    },
+    "spacing": {
+      "margin-mobile": "1.25rem",
+      "gutter": "1.5rem",
+      "space-md": "1rem",
+      "margin": "3rem",
+      "gutter-mobile": "1rem",
+      "space-sm": "0.5rem",
+      "space-lg": "1.5rem",
+      "space-xs": "0.25rem",
+      "space-xl": "2.5rem"
+    },
+    "headlineFontFamily": "Inter",
+    "bodyFontFamily": "Inter",
+    "labelFontFamily": "Inter"
+  },
+  "screenInstances": [
+    {
+      "id": "21990d3f00344d18897deca3ef5a3fdd",
+      "sourceScreen": "projects/5680212938138663204/screens/21990d3f00344d18897deca3ef5a3fdd",
+      "x": 1024,
+      "width": 1280,
+      "height": 1118,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "5c7ca0c8b996456d8f222b707f684497",
+      "sourceScreen": "projects/5680212938138663204/screens/5c7ca0c8b996456d8f222b707f684497",
+      "x": 2368,
+      "width": 1280,
+      "height": 1118,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "74fee797b0514d73a8f99e95b1c3f32a",
+      "sourceScreen": "projects/5680212938138663204/screens/74fee797b0514d73a8f99e95b1c3f32a",
+      "x": 3712,
+      "y": 1374,
+      "width": 1280,
+      "height": 650,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "assets_784135ab4fad4f90a410a817d3981ea9",
+      "y": 1374,
+      "width": 960,
+      "height": 540,
+      "sourceAsset": "assets/784135ab4fad4f90a410a817d3981ea9",
+      "type": "DESIGN_SYSTEM_INSTANCE"
+    },
+    {
+      "id": "assets_9917c0a9f29b4599a6ffb52913422e02",
+      "width": 960,
+      "height": 540,
+      "sourceAsset": "assets/9917c0a9f29b4599a6ffb52913422e02",
+      "type": "DESIGN_SYSTEM_INSTANCE"
+    },
+    {
+      "id": "bffff5798f4b4242824337fff11bc410",
+      "sourceScreen": "projects/5680212938138663204/screens/bffff5798f4b4242824337fff11bc410",
+      "x": 2368,
+      "y": 1374,
+      "width": 1280,
+      "height": 1120,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "d67ce988d9984113a570d9cd6290116f",
+      "sourceScreen": "projects/5680212938138663204/screens/d67ce988d9984113a570d9cd6290116f",
+      "x": 3712,
+      "width": 1280,
+      "height": 1118,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "fd1a21ab45c147c2b704f13b1481b436",
+      "sourceScreen": "projects/5680212938138663204/screens/fd1a21ab45c147c2b704f13b1481b436",
+      "x": 1024,
+      "y": 1374,
+      "width": 1280,
+      "height": 1121,
+      "label": "Generating Screen..."
+    }
+  ],
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* System Responsive Colors via CSS Variables */
+    :root {
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-subtle: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      --btn-secondary-bg: #ffffff;
+      --btn-secondary-border: #e2e8f0;
+      --btn-secondary-text: #0f172a;
+      --btn-secondary-hover: #f8fafc;
+      --btn-primary-bg: #243b4e;
+      --btn-primary-text: #ffffff;
+      --btn-primary-hover: #1b2e3e;
+      --accent-color: #243b4e;
+      --avatar-bg: #243b4e;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page: #0b0f17;
+        --bg-surface: #131b2e;
+        --bg-surface-subtle: #1e293b;
+        --text-primary: #f1f5f9;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --border-subtle: #475569;
+        --btn-secondary-bg: #131b2e;
+        --btn-secondary-border: #334155;
+        --btn-secondary-text: #f1f5f9;
+        --btn-secondary-hover: #1e293b;
+        --btn-primary-bg: #3b82f6;
+        --btn-primary-text: #ffffff;
+        --btn-primary-hover: #2563eb;
+        --accent-color: #60a5fa;
+        --avatar-bg: #1e293b;
+      }
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .themed-header, .themed-footer {
+      background-color: var(--bg-page);
+      border-color: var(--border-color);
+    }
+
+    .themed-card {
+      background-color: var(--bg-surface);
+      border-color: var(--border-color);
+    }
+
+    .text-themed-primary {
+      color: var(--text-primary);
+    }
+
+    .text-themed-muted {
+      color: var(--text-muted);
+    }
+
+    .text-themed-accent {
+      color: var(--accent-color);
+    }
+
+    .border-themed {
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary {
+      background-color: var(--btn-secondary-bg);
+      border-color: var(--btn-secondary-border);
+      color: var(--btn-secondary-text);
+    }
+    .btn-secondary:hover {
+      background-color: var(--btn-secondary-hover);
+    }
+
+    .btn-primary {
+      background-color: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+    }
+    .btn-primary:hover {
+      background-color: var(--btn-primary-hover);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "media",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Inter", "sans-serif"],
+          },
+          fontSize: {
+            "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "500" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+            "label-lg": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "3rem",
+            "gutter-mobile": "1.25rem",
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+<!-- Top Navigation Header -->
+<header class="fixed top-0 left-0 right-0 z-40 themed-header border-b border-themed/60 backdrop-blur-md bg-opacity-95">
+<div class="h-16 max-w-[960px] mx-auto px-gutter-mobile md:px-margin flex items-center justify-between">
+<a class="text-label-lg tracking-[0.2em] uppercase text-themed-primary font-medium select-none" data-path="focus-workspace" href="#">SANKALP</a>
+<div class="flex items-center gap-space-lg">
+<nav class="flex items-center gap-space-md">
+<a aria-current="page" class="transition-colors text-themed-primary font-medium text-label-md" data-path="focus-workspace" href="#">Focus</a>
+<a class="text-label-md text-themed-muted hover:text-themed-primary transition-colors" data-path="archive" href="#">Archive</a>
+<a class="text-label-md text-themed-muted hover:text-themed-primary transition-colors" data-path="preferences" href="#">Preferences</a>
+</nav>
+<div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-themed/80" style="background-color: var(--avatar-bg);">
+<span class="material-symbols-outlined text-[18px] text-white">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="w-full flex-1 pt-16 flex flex-col items-center">
+<div class="w-full max-w-[960px] mx-auto px-gutter-mobile md:px-margin flex-1 flex flex-col">
+<div class="flex flex-col w-full">
+<section class="w-full max-w-[960px] mx-auto py-space-xl md:py-space-xl">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-space-xs pb-space-lg">
+<div class="flex items-center gap-space-sm">
+<h1 class="text-headline-sm text-themed-primary">3 alternative routes to New Delhi before 6:00 PM</h1>
+</div>
+<a class="text-label-md text-themed-muted hover:text-themed-primary underline underline-offset-4 decoration-current transition-colors self-start sm:self-auto" href="#">Edit search</a>
+</div>
+<!-- 3-Card Comparison Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<!-- Card 1: Express Train -->
+<div class="themed-card rounded-lg p-space-lg flex flex-col justify-between border border-themed transition-shadow duration-200 shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-[20px] text-themed-muted">train</span>
+<span class="text-label-sm text-themed-muted uppercase tracking-wider font-semibold">Alternate route</span>
+</div>
+<div class="mt-space-lg">
+<h2 class="text-headline-sm text-themed-primary">Express Train</h2>
+<p class="text-body-sm text-themed-muted mt-space-xs">Direct express via Chord Line • Departs 11:30 AM</p>
+</div>
+<div class="mt-space-xl pt-space-xs">
+<div class="text-headline-lg text-themed-primary font-semibold">₹1,250</div>
+<div class="flex items-center gap-space-sm mt-space-xs text-body-sm text-themed-muted">
+<span>4h 15m</span>
+<span>·</span>
+<span>88% on-time chance</span>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-md">
+<button class="btn-secondary w-full py-[10px] px-space-md text-label-md rounded-lg border transition-all duration-150 text-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2" type="button">
+                  Select route
+                </button>
+</div>
+</div>
+<!-- Card 2: Intercity Bus -->
+<div class="themed-card rounded-lg p-space-lg flex flex-col justify-between border border-themed transition-shadow duration-200 shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-[20px] text-themed-muted">directions_bus</span>
+<span class="text-label-sm text-themed-muted uppercase tracking-wider font-semibold">Economical</span>
+</div>
+<div class="mt-space-lg">
+<h2 class="text-headline-sm text-themed-primary">Intercity Bus</h2>
+<p class="text-body-sm text-themed-muted mt-space-xs">Highway Express AC Sleeper • Departs 10:45 AM</p>
+</div>
+<div class="mt-space-xl pt-space-xs">
+<div class="text-headline-lg text-themed-primary font-semibold">₹850</div>
+<div class="flex items-center gap-space-sm mt-space-xs text-body-sm text-themed-muted">
+<span>5h 30m</span>
+<span>·</span>
+<span>94% on-time chance</span>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-md">
+<button class="btn-secondary w-full py-[10px] px-space-md text-label-md rounded-lg border transition-all duration-150 text-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2" type="button">
+                  Select route
+                </button>
+</div>
+</div>
+<!-- Card 3: Direct Flight (Fastest) -->
+<div class="themed-card rounded-lg p-space-lg flex flex-col justify-between border border-themed ring-1 ring-themed-accent/30 transition-shadow duration-200 shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-[20px] text-themed-accent">flight_takeoff</span>
+<span class="text-label-sm text-themed-muted uppercase tracking-wider font-semibold">Fastest arrival</span>
+</div>
+<div class="mt-space-lg">
+<h2 class="text-headline-sm text-themed-primary">Direct Flight</h2>
+<p class="text-body-sm text-themed-muted mt-space-xs">Terminal 2 nonstop • Departs 1:15 PM</p>
+</div>
+<div class="mt-space-xl pt-space-xs">
+<div class="text-headline-lg text-themed-primary font-semibold">₹3,400</div>
+<div class="flex items-center gap-space-sm mt-space-xs text-body-sm text-themed-muted">
+<span>1h 10m</span>
+<span>·</span>
+<span>96% on-time chance</span>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-md">
+<button class="btn-primary w-full py-[10px] px-space-md text-label-md rounded-lg transition-all duration-150 text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2" type="button">
+                  Select route
+                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full themed-footer border-t border-themed/60 py-space-xl">
+<div class="max-w-[960px] mx-auto px-gutter-mobile md:px-margin flex items-center justify-between text-themed-muted text-label-sm">
+<span class="tracking-[0.1em] uppercase">Sankalp · Quiet Workspace</span>
+<span class="opacity-75">Frictionless</span>
+</div>
+</footer>
+</body></html>
