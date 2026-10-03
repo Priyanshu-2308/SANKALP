@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "description": "Minimum Connection Times (MCT) in minutes by transit mode pair in India",
+  "default_mct_minutes": 30,
+  "matrix": {
+    "TRAIN_TO_TRAIN": 30,
+    "BUS_TO_BUS": 25,
+    "FLIGHT_TO_FLIGHT": 60,
+    "TRAIN_TO_BUS": 40,
+    "BUS_TO_TRAIN": 40,
+    "TRAIN_TO_FLIGHT": 120,
+    "BUS_TO_FLIGHT": 120,
+    "FLIGHT_TO_TRAIN": 75,
+    "FLIGHT_TO_BUS": 75
+  },
+  "intermodal_transfer_speed_kmh": 25.0,
+  "intermodal_base_transfer_minutes": 30
+}

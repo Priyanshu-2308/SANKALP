@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "speed_profile_kmh": {
+    "TRAIN": {
+      "min": 55.0,
+      "avg": 72.0,
+      "max": 95.0
+    },
+    "BUS": {
+      "min": 38.0,
+      "avg": 48.0,
+      "max": 65.0
+    },
+    "FLIGHT": {
+      "cruise_speed": 720.0,
+      "taxi_takeoff_landing_minutes": 40
+    }
+  },
+  "fare_rate_paise_per_km": {
+    "TRAIN": {
+      "sleeper": 55,
+      "ac3": 145,
+      "ac2": 220,
+      "default": 120
+    },
+    "BUS": {
+      "ordinary": 85,
+      "ac_sleeper": 175,
+      "default": 140
+    },
+    "FLIGHT": {
+      "base_fare_paise": 220000,
+      "rate_per_km_paise": 380,
+      "min_distance_km": 250
+    }
+  },
+  "delay_distributions": {
+    "TRAIN": {
+      "distribution": "lognormal",
+      "mu": 2.65,
+      "sigma": 0.75,
+      "min_delay_minutes": 0.0,
+      "description": "Median ~14 min, heavy right tail up to 180+ min"
+    },
+    "BUS": {
+      "distribution": "lognormal",
+      "mu": 2.3,
+      "sigma": 0.6,
+      "min_delay_minutes": 0.0,
+      "description": "Median ~10 min, traffic-skewed tail"
+    },
+    "FLIGHT": {
+      "distribution": "lognormal",
+      "mu": 1.95,
+      "sigma": 0.5,
+      "min_delay_minutes": 0.0,
+      "description": "Median ~7 min, high punctual baseline"
+    }
+  },
+  "scoring_weights": {
+    "weight_p_ontime": 0.45,
+    "weight_buffer": 0.2,
+    "weight_cost": 0.25,
+    "weight_comfort": 0.1
+  },
+  "thresholds": {
+    "min_acceptable_ontime_rate": 0.65,
+    "disruption_trigger_ontime_rate": 0.5,
+    "target_safety_buffer_minutes": 120
+  }
+}
