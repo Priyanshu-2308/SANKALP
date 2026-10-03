@@ -19,7 +19,7 @@ function ResultsContent() {
   const [searchResponse, setSearchResponse] = useState<RecoverySearchResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedItinId, setSelectedItinId] = useState<string | null>(null);
+  const [selectedCardKey, setSelectedCardKey] = useState<string | null>(null);
   const [showPruned, setShowPruned] = useState(false);
 
   useEffect(() => {
@@ -51,7 +51,8 @@ function ResultsContent() {
   }, [originId, destinationId, deadline, budgetPaise]);
 
   const handleSelectItinerary = async (itinerary: ScoredItinerary) => {
-    setSelectedItinId(itinerary.itinerary_id);
+    const cardKey = `${itinerary.tag || "rec"}-${itinerary.itinerary_id}`;
+    setSelectedCardKey(cardKey);
     try {
       const tokenResp = await requestApprovalToken(itinerary.itinerary_id);
       // Store itinerary details in sessionStorage for the confirmation step
@@ -63,7 +64,7 @@ function ResultsContent() {
       router.push(`/confirm?itinerary_id=${itinerary.itinerary_id}&token=${tokenResp.approval_token}`);
     } catch (err: any) {
       alert(`Could not secure single-use token: ${err.message}`);
-      setSelectedItinId(null);
+      setSelectedCardKey(null);
     }
   };
 
@@ -134,14 +135,17 @@ function ResultsContent() {
 
       {/* Triad Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-        {triadList.map((itinerary) => (
-          <TriadCard
-            key={itinerary.itinerary_id}
-            itinerary={itinerary}
-            onSelect={handleSelectItinerary}
-            isLoading={selectedItinId === itinerary.itinerary_id}
-          />
-        ))}
+        {triadList.map((itinerary, idx) => {
+          const cardKey = `${itinerary.tag || idx}-${itinerary.itinerary_id}`;
+          return (
+            <TriadCard
+              key={cardKey}
+              itinerary={itinerary}
+              onSelect={handleSelectItinerary}
+              isLoading={selectedCardKey === cardKey}
+            />
+          );
+        })}
       </div>
 
       {/* Pruned Candidates Explanation Accordion */}

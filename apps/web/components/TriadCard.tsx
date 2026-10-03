@@ -132,7 +132,7 @@ export default function TriadCard({ itinerary, onSelect, isLoading = false }: Tr
             Route Schedule
           </div>
           {legs.map((leg, i) => (
-            <div key={leg.leg_id} className="text-xs">
+            <div key={`${leg.leg_id || i}_${i}`} className="text-xs">
               <div className="flex items-center justify-between font-medium text-ink-primary">
                 <div className="flex items-center gap-1.5">
                   <span>{getModeIcon(leg.mode)}</span>
