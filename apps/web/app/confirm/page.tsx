@@ -77,8 +77,8 @@ function ConfirmContent() {
       // Clear session token to avoid accidental reuse
       sessionStorage.removeItem("sankalp_approval_token");
 
-      // Redirect to live trip monitoring page
-      router.push(`/trip/${res.trip_id}`);
+      // Redirect to live trip monitoring page (query param for static host compatibility)
+      router.push(`/trip/?id=${encodeURIComponent(res.trip_id)}`);
     } catch (err: any) {
       setIsSubmitting(false);
       setErrorMessage(err.message || "Failed to approve recovery itinerary.");
