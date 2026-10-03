@@ -16,9 +16,6 @@ export default function Navbar() {
           >
             SANKALP
           </Link>
-          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-ink-secondary border border-ink-border">
-            Transit Recovery Prototype
-          </span>
         </div>
 
         <div className="flex items-center gap-6">

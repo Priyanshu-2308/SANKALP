@@ -38,6 +38,7 @@ jobs:
       - name: Build Next.js Static Export
         working-directory: apps/web
         env:
+          EXPORT: "true"
           NEXT_PUBLIC_BASE_PATH: /SANKALP
         run: npm run build
 

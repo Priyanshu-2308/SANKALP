@@ -1,5 +1,7 @@
 import TripClientView from "./TripClientView";
 
+export const dynamicParams = true;
+
 // Required for Next.js static HTML export (e.g. GitHub Pages)
 export function generateStaticParams() {
   return [

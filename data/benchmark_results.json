@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-10-03T15:42:01.094360+05:30",
+  "timestamp": "2026-10-03T16:02:07.003250+05:30",
   "trials_per_candidate": 10000,
-  "median_latency_ms": 26.14,
-  "p90_latency_ms": 89.52,
+  "median_latency_ms": 17.79,
+  "p90_latency_ms": 51.49,
   "corridors": [
     {
       "corridor": "1. Metro-to-Metro (Long Distance)",
       "type": "long_distance_metro",
-      "execution_time_ms": 89.52,
+      "execution_time_ms": 29.2,
       "candidates_evaluated": 4,
       "recommendations_found": 3,
       "safest_p_ontime": 0.9965,
@@ -16,7 +16,7 @@
     {
       "corridor": "2. Short Regional Corridor",
       "type": "short_regional",
-      "execution_time_ms": 15.82,
+      "execution_time_ms": 4.71,
       "candidates_evaluated": 4,
       "recommendations_found": 3,
       "safest_p_ontime": 1.0,
@@ -25,7 +25,7 @@
     {
       "corridor": "3. Tier-2 to Tier-1 Rail Corridor",
       "type": "tier2_to_tier1",
-      "execution_time_ms": 59.96,
+      "execution_time_ms": 35.84,
       "candidates_evaluated": 15,
       "recommendations_found": 3,
       "safest_p_ontime": 1.0,
@@ -34,7 +34,7 @@
     {
       "corridor": "4. Remote / Non-Airport Corridor",
       "type": "remote_regional",
-      "execution_time_ms": 14.74,
+      "execution_time_ms": 10.31,
       "candidates_evaluated": 6,
       "recommendations_found": 3,
       "safest_p_ontime": 0.9999,
@@ -43,7 +43,7 @@
     {
       "corridor": "5. Cross-Country Diagonal Corridor",
       "type": "cross_country_diagonal",
-      "execution_time_ms": 36.45,
+      "execution_time_ms": 25.26,
       "candidates_evaluated": 14,
       "recommendations_found": 3,
       "safest_p_ontime": 1.0,
@@ -52,7 +52,7 @@
     {
       "corridor": "6. Tight Deadline Corridor",
       "type": "tight_deadline",
-      "execution_time_ms": 1.88,
+      "execution_time_ms": 0.59,
       "candidates_evaluated": 0,
       "recommendations_found": 0,
       "safest_p_ontime": 0.0,
@@ -61,7 +61,7 @@
     {
       "corridor": "7. Tight Budget Corridor",
       "type": "tight_budget",
-      "execution_time_ms": 7.94,
+      "execution_time_ms": 5.1,
       "candidates_evaluated": 4,
       "recommendations_found": 3,
       "safest_p_ontime": 0.9999,
@@ -70,7 +70,7 @@
     {
       "corridor": "8. Multimodal Transfer Corridor",
       "type": "multimodal_transfer",
-      "execution_time_ms": 67.11,
+      "execution_time_ms": 51.49,
       "candidates_evaluated": 40,
       "recommendations_found": 3,
       "safest_p_ontime": 1.0,

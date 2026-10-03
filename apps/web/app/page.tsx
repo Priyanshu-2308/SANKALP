@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import StationAutocomplete from "../components/StationAutocomplete";
-import { getPlaceById, parseNaturalLanguageQuery } from "../lib/api";
+import { parseNaturalLanguageQuery } from "../lib/api";
 import { Place } from "../lib/types";
 
 export default function HomePage() {
@@ -16,10 +16,10 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
 
-  // Natural Language state
+  // Chat Box state
   const [nlQuery, setNlQuery] = useState("");
   const [isParsingNl, setIsParsingNl] = useState(false);
-  const [nlFeedback, setNlFeedback] = useState<string | null>(null);
+  const [isParserAvailable, setIsParserAvailable] = useState(true);
 
   // Initialize deadline to 18 hours from now
   useEffect(() => {
@@ -35,26 +35,11 @@ export default function HomePage() {
     setDestination(temp);
   };
 
-  const handleQuickSelect = async (origCode: string, destCode: string, budget: number) => {
-    try {
-      const [origPlace, destPlace] = await Promise.all([
-        getPlaceById(origCode),
-        getPlaceById(destCode),
-      ]);
-      setOrigin(origPlace);
-      setDestination(destPlace);
-      setBudgetInr(budget);
-    } catch (e) {
-      console.error("Quick select error:", e);
-    }
-  };
-
-  const handleParseNl = async (customText?: string) => {
-    const textToParse = customText || nlQuery;
-    if (!textToParse.trim()) return;
+  const handleParseNl = async () => {
+    const textToParse = nlQuery.trim();
+    if (!textToParse) return;
 
     setIsParsingNl(true);
-    setNlFeedback(null);
     setFormError(null);
 
     try {
@@ -69,12 +54,21 @@ export default function HomePage() {
         const formatted = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
         setDeadline(formatted);
       }
-
-      setNlFeedback(
-        `Parsed (${Math.round(res.confidence_score * 100)}% certainty): ${res.explanation}`
-      );
     } catch (err: any) {
-      setFormError(`Natural language parsing error: ${err.message}`);
+      const msg = String(err?.message || "").toLowerCase();
+      // If AI parser is unavailable (no key or quota hit), hide the chat box completely
+      if (
+        msg.includes("quota") ||
+        msg.includes("key") ||
+        msg.includes("unauthorized") ||
+        msg.includes("unavailable") ||
+        msg.includes("429") ||
+        msg.includes("401") ||
+        msg.includes("403") ||
+        msg.includes("not found")
+      ) {
+        setIsParserAvailable(false);
+      }
     } finally {
       setIsParsingNl(false);
     }
@@ -115,77 +109,59 @@ export default function HomePage() {
     router.push(`/results?${queryParams.toString()}`);
   };
 
-  const sampleNlQueries = [
-    "My train from New Delhi to Jaipur is delayed by 3 hours, get me there by 8 PM under 2000 rupees",
-    "Train from Howrah to Bhubaneswar was cancelled, need to reach by 10 PM under 2500 rupees",
-    "Stuck in Pune heading to Mumbai, need alternative before 6 PM budget 1200",
-  ];
-
   return (
     <div className="w-full flex-1 flex flex-col items-center justify-center px-4 py-12 md:py-16">
-      <div className="w-full max-w-[660px] flex flex-col items-center">
-        {/* Hero Header */}
-        <div className="text-center mb-8">
+      <div className="w-full max-w-[620px] flex flex-col items-center">
+        {/* Headline */}
+        <div className="text-center mb-6">
           <h1 className="text-3xl md:text-4xl font-semibold text-ink-primary tracking-tight">
             Find your alternative route.
           </h1>
-          <p className="text-sm md:text-base text-ink-secondary mt-2">
-            Autonomous multi-modal recovery when Indian transit schedules fail.
-          </p>
         </div>
 
-        {/* Conversational Natural Language Assistant Bar */}
-        <div className="w-full bg-surface-container-lowest border border-ink-border rounded-xl p-4 shadow-sm mb-5">
-          <div className="flex items-center justify-between pb-2 text-xs">
-            <span className="font-semibold text-ink-primary flex items-center gap-1.5">
-              <span>✦</span>
-              <span>Conversational Journey Assistant</span>
-            </span>
-            <span className="text-[10px] uppercase font-bold text-ink-muted">Natural Language Parser</span>
-          </div>
-
-          <div className="flex gap-2">
+        {/* Minimalist Chat Box */}
+        {isParserAvailable && (
+          <div className="w-full relative mb-6">
             <input
               type="text"
               value={nlQuery}
               onChange={(e) => setNlQuery(e.target.value)}
-              placeholder="e.g. My train from Delhi to Jaipur is delayed by 3 hours, get me there by 8 PM under 2000"
-              className="flex-1 bg-surface-container-low border border-ink-border rounded-lg px-3 py-2 text-xs text-ink-primary focus:outline-none focus:border-ink-primary placeholder:text-ink-muted"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleParseNl();
+                }
+              }}
+              placeholder="How can I help?"
+              className="w-full bg-surface-container-lowest border border-ink-border rounded-xl pl-4 pr-11 py-3 text-sm text-ink-primary shadow-xs focus:outline-none focus:border-ink-primary placeholder:text-ink-muted transition-colors"
             />
             <button
               type="button"
               onClick={() => handleParseNl()}
               disabled={isParsingNl || !nlQuery.trim()}
-              className="px-3.5 py-2 bg-surface-container hover:bg-surface-container-high border border-ink-border text-ink-primary text-xs font-medium rounded-lg transition-colors shrink-0 disabled:opacity-50"
+              aria-label="Submit"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center text-ink-muted hover:text-ink-primary hover:bg-surface-container transition-colors disabled:opacity-30 disabled:hover:bg-transparent"
             >
-              {isParsingNl ? "Parsing..." : "Auto-Fill"}
+              {isParsingNl ? (
+                <div className="w-4 h-4 border-2 border-primary-container border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              )}
             </button>
           </div>
-
-          {/* Sample Clickable Prompts */}
-          <div className="flex flex-wrap items-center gap-1.5 mt-2.5">
-            <span className="text-[10px] text-ink-muted">Examples:</span>
-            {sampleNlQueries.map((prompt, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => {
-                  setNlQuery(prompt);
-                  handleParseNl(prompt);
-                }}
-                className="text-[10px] px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-ink-secondary border border-ink-border transition-colors truncate max-w-[280px]"
-              >
-                {prompt}
-              </button>
-            ))}
-          </div>
-
-          {nlFeedback && (
-            <div className="mt-2.5 p-2 rounded bg-emerald-50 text-emerald-800 text-[11px] border border-emerald-200">
-              {nlFeedback}
-            </div>
-          )}
-        </div>
+        )}
 
         {/* Structured Search Form */}
         <form
@@ -230,7 +206,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-              <label htmlFor="deadline-input" className="text-xs font-medium text-ink-secondary">
+              <label
+                htmlFor="deadline-input"
+                className="text-xs font-medium text-ink-secondary"
+              >
                 Must arrive by
               </label>
               <input
@@ -244,7 +223,10 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label htmlFor="budget-input" className="text-xs font-medium text-ink-secondary">
+              <label
+                htmlFor="budget-input"
+                className="text-xs font-medium text-ink-secondary"
+              >
                 Maximum Budget (₹)
               </label>
               <input
@@ -276,42 +258,6 @@ export default function HomePage() {
             </button>
           </div>
         </form>
-
-        {/* Quick Corridor Buttons */}
-        <div className="flex items-center gap-2 mt-6 text-xs text-ink-muted flex-wrap justify-center">
-          <span>Quick corridors:</span>
-          <button
-            type="button"
-            onClick={() => handleQuickSelect("NDLS", "JP", 1800)}
-            className="hover:text-ink-primary transition-colors underline underline-offset-4 decoration-ink-border"
-          >
-            NDLS → JP
-          </button>
-          <span className="text-ink-border">·</span>
-          <button
-            type="button"
-            onClick={() => handleQuickSelect("HWH", "BBS", 2200)}
-            className="hover:text-ink-primary transition-colors underline underline-offset-4 decoration-ink-border"
-          >
-            HWH → BBS
-          </button>
-          <span className="text-ink-border">·</span>
-          <button
-            type="button"
-            onClick={() => handleQuickSelect("PUNE", "CSMT", 1200)}
-            className="hover:text-ink-primary transition-colors underline underline-offset-4 decoration-ink-border"
-          >
-            PUNE → CSMT
-          </button>
-          <span className="text-ink-border">·</span>
-          <button
-            type="button"
-            onClick={() => handleQuickSelect("BLR", "MAS", 3500)}
-            className="hover:text-ink-primary transition-colors underline underline-offset-4 decoration-ink-border"
-          >
-            BLR → MAS
-          </button>
-        </div>
       </div>
     </div>
   );
