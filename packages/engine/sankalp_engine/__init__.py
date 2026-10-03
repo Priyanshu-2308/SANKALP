@@ -34,6 +34,7 @@ from .scoring import (
     score_itinerary_comfort,
     score_ontime_probability,
 )
+from .nl_parser import NaturalLanguageQueryParser, ParsedJourneyQuery
 from .simulation import simulate_itinerary_delays
 from .statistics import sample_lognormal_delays, wilson_score_interval
 

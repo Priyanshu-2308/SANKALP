@@ -188,9 +188,29 @@ def run_e2e_verification() -> None:
     if sim_res["replacement_plan"]:
         print(f"    - Autonomous recovery alternative computed: {sim_res['replacement_plan']['tag']} (Fare: ₹{sim_res['replacement_plan']['total_fare_inr']})")
 
+    # 12. Conversational NL Query Parser Verification
+    print("\n[Step 12] Testing Natural Language Journey Query Parsing ...")
+    nl_query_text = (
+        f"My train from {orig['name']} to {dest['name']} was delayed by 2 hours, "
+        "need to arrive before 10 PM under 2500 rupees"
+    )
+    status, nl_res = http_post(f"{BACKEND_URL}/v1/recover/parse-query", {"query": nl_query_text})
+    assert status == 200, f"NL parse failed: {nl_res}"
+    assert nl_res["origin"] is not None and nl_res["origin"]["id"] == orig["id"]
+    assert nl_res["destination"] is not None and nl_res["destination"]["id"] == dest["id"]
+    assert nl_res["budget_inr"] == 2500
+    assert nl_res["injected_delay_minutes"] == 120.0
+    print(f"  [OK] NL query successfully parsed:")
+    print(f"    - Confidence: {nl_res['confidence_score']*100:.0f}%")
+    print(f"    - Origin: {nl_res['origin']['name']} ({nl_res['origin']['code']})")
+    print(f"    - Destination: {nl_res['destination']['name']} ({nl_res['destination']['code']})")
+    print(f"    - Parsed Budget: ₹{nl_res['budget_inr']}")
+    print(f"    - Explanation: {nl_res['explanation']}")
+
     print("\n" + "=" * 60)
-    print("ALL 11 END-TO-END VERIFICATION STEPS PASSED PERFECTLY!")
+    print("ALL 12 END-TO-END VERIFICATION STEPS PASSED PERFECTLY!")
     print("=" * 60)
+
 
 
 if __name__ == "__main__":

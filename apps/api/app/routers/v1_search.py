@@ -4,8 +4,11 @@ import uuid
 from fastapi import APIRouter, Depends, HTTPException
 from sankalp_engine.datasource import TransportDataSource
 from sankalp_engine.engine import find_journey_recovery
+from sankalp_engine.nl_parser import NaturalLanguageQueryParser
 
 from ..dependencies import get_data_source
+from ..schemas.nl_query import ParseQueryRequest, ParseQueryResponse
+from ..schemas.places import PlaceResponse
 from ..schemas.search import (
     ExclusionRationaleResponse,
     LegResponse,
@@ -144,3 +147,57 @@ def execute_recovery_search(
         recommendations=recommendations_map,
         pruned_candidates=pruned_resp,
     )
+
+
+@router.post("/parse-query", response_model=ParseQueryResponse)
+def parse_natural_language_query(
+    req: ParseQueryRequest,
+    ds: TransportDataSource = Depends(get_data_source),
+) -> ParseQueryResponse:
+    """Parse unstructured journey disruption text into structured recovery parameters."""
+    parser = NaturalLanguageQueryParser(data_source=ds)
+    parsed = parser.parse(req.query)
+
+    orig_resp = None
+    if parsed.origin:
+        orig_resp = PlaceResponse(
+            id=parsed.origin.id,
+            name=parsed.origin.name,
+            code=parsed.origin.code,
+            place_type=parsed.origin.place_type.value,
+            city=parsed.origin.city,
+            state=parsed.origin.state,
+            latitude=parsed.origin.latitude,
+            longitude=parsed.origin.longitude,
+            tier=parsed.origin.tier,
+            aliases=parsed.origin.aliases,
+        )
+
+    dest_resp = None
+    if parsed.destination:
+        dest_resp = PlaceResponse(
+            id=parsed.destination.id,
+            name=parsed.destination.name,
+            code=parsed.destination.code,
+            place_type=parsed.destination.place_type.value,
+            city=parsed.destination.city,
+            state=parsed.destination.state,
+            latitude=parsed.destination.latitude,
+            longitude=parsed.destination.longitude,
+            tier=parsed.destination.tier,
+            aliases=parsed.destination.aliases,
+        )
+
+    return ParseQueryResponse(
+        raw_query=parsed.raw_query,
+        origin=orig_resp,
+        destination=dest_resp,
+        deadline=parsed.deadline.isoformat() if parsed.deadline else None,
+        budget_paise=parsed.budget_paise,
+        budget_inr=parsed.budget_inr,
+        injected_delay_minutes=parsed.injected_delay_minutes,
+        is_cancellation=parsed.is_cancellation,
+        confidence_score=parsed.confidence_score,
+        explanation=parsed.explanation,
+    )
+

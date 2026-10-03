@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import StationAutocomplete from "../components/StationAutocomplete";
-import { getPlaceById } from "../lib/api";
+import { getPlaceById, parseNaturalLanguageQuery } from "../lib/api";
 import { Place } from "../lib/types";
 
 export default function HomePage() {
@@ -16,10 +16,14 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
 
+  // Natural Language state
+  const [nlQuery, setNlQuery] = useState("");
+  const [isParsingNl, setIsParsingNl] = useState(false);
+  const [nlFeedback, setNlFeedback] = useState<string | null>(null);
+
   // Initialize deadline to 18 hours from now
   useEffect(() => {
     const d = new Date(Date.now() + 18 * 60 * 60 * 1000);
-    // Format to YYYY-MM-DDTHH:mm
     const pad = (n: number) => String(n).padStart(2, "0");
     const formatted = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
     setDeadline(formatted);
@@ -42,6 +46,37 @@ export default function HomePage() {
       setBudgetInr(budget);
     } catch (e) {
       console.error("Quick select error:", e);
+    }
+  };
+
+  const handleParseNl = async (customText?: string) => {
+    const textToParse = customText || nlQuery;
+    if (!textToParse.trim()) return;
+
+    setIsParsingNl(true);
+    setNlFeedback(null);
+    setFormError(null);
+
+    try {
+      const res = await parseNaturalLanguageQuery(textToParse);
+      if (res.origin) setOrigin(res.origin);
+      if (res.destination) setDestination(res.destination);
+      if (res.budget_inr) setBudgetInr(res.budget_inr);
+
+      if (res.deadline) {
+        const d = new Date(res.deadline);
+        const pad = (n: number) => String(n).padStart(2, "0");
+        const formatted = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+        setDeadline(formatted);
+      }
+
+      setNlFeedback(
+        `Parsed (${Math.round(res.confidence_score * 100)}% certainty): ${res.explanation}`
+      );
+    } catch (err: any) {
+      setFormError(`Natural language parsing error: ${err.message}`);
+    } finally {
+      setIsParsingNl(false);
     }
   };
 
@@ -80,9 +115,15 @@ export default function HomePage() {
     router.push(`/results?${queryParams.toString()}`);
   };
 
+  const sampleNlQueries = [
+    "My train from New Delhi to Jaipur is delayed by 3 hours, get me there by 8 PM under 2000 rupees",
+    "Train from Howrah to Bhubaneswar was cancelled, need to reach by 10 PM under 2500 rupees",
+    "Stuck in Pune heading to Mumbai, need alternative before 6 PM budget 1200",
+  ];
+
   return (
     <div className="w-full flex-1 flex flex-col items-center justify-center px-4 py-12 md:py-16">
-      <div className="w-full max-w-[620px] flex flex-col items-center">
+      <div className="w-full max-w-[660px] flex flex-col items-center">
         {/* Hero Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-semibold text-ink-primary tracking-tight">
@@ -93,7 +134,60 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Search Card */}
+        {/* Conversational Natural Language Assistant Bar */}
+        <div className="w-full bg-surface-container-lowest border border-ink-border rounded-xl p-4 shadow-sm mb-5">
+          <div className="flex items-center justify-between pb-2 text-xs">
+            <span className="font-semibold text-ink-primary flex items-center gap-1.5">
+              <span>✦</span>
+              <span>Conversational Journey Assistant</span>
+            </span>
+            <span className="text-[10px] uppercase font-bold text-ink-muted">Natural Language Parser</span>
+          </div>
+
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={nlQuery}
+              onChange={(e) => setNlQuery(e.target.value)}
+              placeholder="e.g. My train from Delhi to Jaipur is delayed by 3 hours, get me there by 8 PM under 2000"
+              className="flex-1 bg-surface-container-low border border-ink-border rounded-lg px-3 py-2 text-xs text-ink-primary focus:outline-none focus:border-ink-primary placeholder:text-ink-muted"
+            />
+            <button
+              type="button"
+              onClick={() => handleParseNl()}
+              disabled={isParsingNl || !nlQuery.trim()}
+              className="px-3.5 py-2 bg-surface-container hover:bg-surface-container-high border border-ink-border text-ink-primary text-xs font-medium rounded-lg transition-colors shrink-0 disabled:opacity-50"
+            >
+              {isParsingNl ? "Parsing..." : "Auto-Fill"}
+            </button>
+          </div>
+
+          {/* Sample Clickable Prompts */}
+          <div className="flex flex-wrap items-center gap-1.5 mt-2.5">
+            <span className="text-[10px] text-ink-muted">Examples:</span>
+            {sampleNlQueries.map((prompt, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  setNlQuery(prompt);
+                  handleParseNl(prompt);
+                }}
+                className="text-[10px] px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-ink-secondary border border-ink-border transition-colors truncate max-w-[280px]"
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
+
+          {nlFeedback && (
+            <div className="mt-2.5 p-2 rounded bg-emerald-50 text-emerald-800 text-[11px] border border-emerald-200">
+              {nlFeedback}
+            </div>
+          )}
+        </div>
+
+        {/* Structured Search Form */}
         <form
           onSubmit={handleSubmit}
           className="w-full bg-surface-container-lowest border border-ink-border rounded-xl p-6 md:p-8 shadow-sm flex flex-col gap-5"
