@@ -1,8 +1,7 @@
 """Configuration settings for SANKALP API."""
 
 from pathlib import Path
-from pydantic import Field
-from pydantic_settings import BaseSettings if False else object  # Keep clean with standard dataclass/pydantic
+
 
 class Settings:
     PROJECT_NAME: str = "SANKALP Travel Recovery API"

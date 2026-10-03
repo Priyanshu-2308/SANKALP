@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-10-03T15:02:29.375434+05:30",
+  "trials_per_candidate": 10000,
+  "median_latency_ms": 61.62,
+  "p90_latency_ms": 385.51,
+  "corridors": [
+    {
+      "corridor": "1. Metro-to-Metro (Long Distance)",
+      "type": "long_distance_metro",
+      "execution_time_ms": 385.51,
+      "candidates_evaluated": 4,
+      "recommendations_found": 3,
+      "safest_p_ontime": 0.9965,
+      "cheapest_fare_inr": 5638
+    },
+    {
+      "corridor": "2. Short Regional Corridor",
+      "type": "short_regional",
+      "execution_time_ms": 21.98,
+      "candidates_evaluated": 4,
+      "recommendations_found": 3,
+      "safest_p_ontime": 1.0,
+      "cheapest_fare_inr": 260
+    },
+    {
+      "corridor": "3. Tier-2 to Tier-1 Rail Corridor",
+      "type": "tier2_to_tier1",
+      "execution_time_ms": 159.73,
+      "candidates_evaluated": 15,
+      "recommendations_found": 3,
+      "safest_p_ontime": 1.0,
+      "cheapest_fare_inr": 355
+    },
+    {
+      "corridor": "4. Remote / Non-Airport Corridor",
+      "type": "remote_regional",
+      "execution_time_ms": 27.44,
+      "candidates_evaluated": 6,
+      "recommendations_found": 3,
+      "safest_p_ontime": 0.9999,
+      "cheapest_fare_inr": 178
+    },
+    {
+      "corridor": "5. Cross-Country Diagonal Corridor",
+      "type": "cross_country_diagonal",
+      "execution_time_ms": 95.79,
+      "candidates_evaluated": 14,
+      "recommendations_found": 3,
+      "safest_p_ontime": 1.0,
+      "cheapest_fare_inr": 1146
+    },
+    {
+      "corridor": "6. Tight Deadline Corridor",
+      "type": "tight_deadline",
+      "execution_time_ms": 1.57,
+      "candidates_evaluated": 0,
+      "recommendations_found": 0,
+      "safest_p_ontime": 0.0,
+      "cheapest_fare_inr": 0
+    },
+    {
+      "corridor": "7. Tight Budget Corridor",
+      "type": "tight_budget",
+      "execution_time_ms": 19.98,
+      "candidates_evaluated": 4,
+      "recommendations_found": 3,
+      "safest_p_ontime": 0.9999,
+      "cheapest_fare_inr": 403
+    },
+    {
+      "corridor": "8. Multimodal Transfer Corridor",
+      "type": "multimodal_transfer",
+      "execution_time_ms": 212.51,
+      "candidates_evaluated": 40,
+      "recommendations_found": 3,
+      "safest_p_ontime": 1.0,
+      "cheapest_fare_inr": 1129
+    }
+  ]
+}
