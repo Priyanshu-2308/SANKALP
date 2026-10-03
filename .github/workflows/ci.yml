@@ -1,0 +1,59 @@
+name: SANKALP Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-decision-engine-and-api:
+    name: Backend Test Suite & AST Guard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e packages/engine
+          pip install -r requirements.txt
+
+      - name: Run AST Hardcoding Guard Test
+        run: |
+          pytest tests/guards/test_no_hardcoded_places.py -v
+
+      - name: Run Full Pytest Suite (Unit, Property, Benchmarks, API)
+        run: |
+          pytest -v
+
+  build-web-client:
+    name: Next.js Frontend Production Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install Frontend Dependencies
+        working-directory: apps/web
+        run: npm ci
+
+      - name: Build Next.js Production Bundle
+        working-directory: apps/web
+        run: npm run build
